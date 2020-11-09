@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatCard, MatCardModule} from '@angular/material/card';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { PageTestComponent } from './page-test/page-test.component';
+import { ResultsComponent } from './results/results.component';
+import { AirlineTicketService } from './shared/airlineticket.service';
+import { MatOptgroup } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-router.module';
 
 
 
@@ -16,18 +21,23 @@ import { LoginComponent } from './components/login/login.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    HeaderComponent,
+    PageTestComponent,
+    ResultsComponent,
     
     
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatButtonModule,
+    MatToolbarModule,
     MatIconModule,
-    MatDividerModule
+    MatCardModule,
+    RouterModule,
+    AppRoutingModule
+    
   ],
-  providers: [],
+  providers: [AirlineTicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

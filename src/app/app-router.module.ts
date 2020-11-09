@@ -1,9 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ResultsComponent } from './results/results.component';
+import { PageTestComponent } from './page-test/page-test.component';
 
 const routes: Routes = [
     { path: '', component: ResultsComponent },
+    { path: 'teste', component: PageTestComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },

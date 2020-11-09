@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ResultsComponent } from './results/results.component';
 import { AppRoutingModule } from './app-router.module';
 import { HeaderComponent } from './header/header.component';
+import { PageTestComponent } from './page-test/page-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultsComponent,
     HeaderComponent,
+    PageTestComponent,
   ],
   imports: [
     BrowserModule,

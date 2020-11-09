@@ -4,4 +4,9 @@
 
 .header-item {
     padding: 0 14px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: aqua;
 }

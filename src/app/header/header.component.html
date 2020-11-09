@@ -2,8 +2,11 @@
     <mat-toolbar-row>
         <span>{{title}}</span>
         <span class="spacing"></span>
-        <a class="header-item" routerLink="/">PASSAGENS ÁEREAS</a>
-        <a class="header-item" routerLink="/teste">MEU PERFIL</a>
-        <a class="header-item">LOGIN</a>
+        <ul class="nav navbar-nav">
+      
+            <a routerLinkActive="active" class="header-item" routerLink="/passagens">PASSAGENS ÁEREAS</a>
+            <a routerLinkActive="active" class="header-item" routerLink="/teste">MEU PERFIL</a>
+            <a routerLinkActive="active" class="header-item" routerLink="/auth">LOGIN</a>
+    </ul>
     </mat-toolbar-row>
 </mat-toolbar>

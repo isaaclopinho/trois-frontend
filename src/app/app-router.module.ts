@@ -4,8 +4,11 @@ import { ResultsComponent } from './results/results.component';
 import { PageTestComponent } from './page-test/page-test.component';
 
 const routes: Routes = [
-    { path: '', component: ResultsComponent },
+    { path: '', redirectTo:'/passagens', pathMatch: 'full'},
+
+    { path: 'passagens', component: ResultsComponent },
     { path: 'teste', component: PageTestComponent },
+    { path: 'auth', component: PageTestComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },

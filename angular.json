@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "trois-frontend"
+  "defaultProject": "trois-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

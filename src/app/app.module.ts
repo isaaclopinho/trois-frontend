@@ -8,10 +8,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { ResultsComponent } from './results/results.component';
+import { AppRoutingModule } from './app-router.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

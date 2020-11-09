@@ -1,0 +1,7 @@
+.spacing {
+    flex: 1 1 auto;
+  }
+
+.header-item {
+    padding: 0 14px;
+}

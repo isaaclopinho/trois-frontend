@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-router.module';
 import {LayoutModule} from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 
 
 
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     PageTestComponent,
     ResultsComponent,
+    TicketCardComponent,
     
     
     

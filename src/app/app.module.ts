@@ -15,6 +15,7 @@ import { MatOptgroup } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-router.module';
 import {LayoutModule} from '@angular/cdk/layout';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -36,7 +37,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatIconModule,
     MatCardModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
     
   ],
   providers: [AirlineTicketService],

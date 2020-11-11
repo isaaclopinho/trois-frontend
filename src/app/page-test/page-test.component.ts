@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
-import { AuthInterface, AuthService } from '../shared/auth.service';
+import { AuthInterface, AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-page-test',
@@ -30,7 +30,6 @@ export class PageTestComponent implements OnInit, OnDestroy {
   
   onSubmit(form? : NgForm){
     // if(!form.valid)
-    let authObs : Observable<AuthInterface>;
     //   return;
     
     // let params = {
@@ -56,7 +55,6 @@ export class PageTestComponent implements OnInit, OnDestroy {
 
   onLogin(form? : NgForm){
     // if(!form.valid)
-    let authObs : Observable<AuthInterface>;
     //   return;
     
     // let params = {

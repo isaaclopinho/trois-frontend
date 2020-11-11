@@ -18,8 +18,9 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './auth/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GuardTestComponent } from './guard-test/guard-test.component';
 
 
 
@@ -31,7 +32,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     PageTestComponent,
     ResultsComponent,
     TicketCardComponent,
-    DropdownComponent,      
+    DropdownComponent,
+    GuardTestComponent,      
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,8 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { AuthService } from './shared/auth.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -39,10 +41,11 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
     MatCardModule,
     RouterModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
     
   ],
-  providers: [AirlineTicketService],
+  providers: [AirlineTicketService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,6 @@ import { MatOptgroup } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-router.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-<<<<<<< HEAD
 import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { AuthService } from './auth/auth.service';
@@ -24,9 +23,9 @@ import { DataService } from './shared/data-storage.service';
 import { AuthInterceptorService } from './auth/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { GuardTestComponent } from './guard-test/guard-test.component';
-=======
+
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
->>>>>>> DEV-001
+
 
 
 
@@ -37,16 +36,11 @@ import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
     HeaderComponent,
     PageTestComponent,
     ResultsComponent,
-<<<<<<< HEAD
     TicketCardComponent,
     DropdownComponent, 
-    GuardTestComponent     
-=======
-    PesquisaComponent
+    GuardTestComponent,     
+    PesquisaComponent  
     
-    
-    
->>>>>>> DEV-001
   ],
   imports: [
     BrowserModule,

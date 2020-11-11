@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ResultsComponent } from './results/results.component';
 import { PageTestComponent } from './page-test/page-test.component';
+import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { GuardTestComponent } from './guard-test/guard-test.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: 'teste', component: PageTestComponent },
     { path: 'teste2', canActivate: [AuthGuard], component: GuardTestComponent },
     { path: 'auth', component: LoginComponent },
+    { path: 'pesquisa', component: PesquisaComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthInterface, AuthService } from '../shared/auth.service';
 
 @Component({
@@ -13,12 +13,19 @@ export class PageTestComponent implements OnInit, OnDestroy {
   isLoading = false;
   error : string = null;
   
+  isAuthenticated = false;  
+  private userSubs : Subscription;
+  
   constructor(private authService : AuthService) { }
   
   ngOnInit(): void {
+    this.userSubs = this.authService.user.subscribe( user =>{
+      this.isAuthenticated = !!user;
+    });
   }
-  
-  ngOnDestroy(): void {    
+
+  ngOnDestroy(): void {
+    this.userSubs.unsubscribe();
   }
   
   onSubmit(form? : NgForm){
@@ -74,4 +81,8 @@ export class PageTestComponent implements OnInit, OnDestroy {
   }
 
 
+
+  logout(){
+    this.authService.logout();
+  }
 }

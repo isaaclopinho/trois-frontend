@@ -1,3 +1,3 @@
 export default class User {
-    constructor(public login: string, public id: string, public token : string){}
+    constructor(public login: string, public userId: string, public token : string){}
 }    

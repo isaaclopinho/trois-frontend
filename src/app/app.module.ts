@@ -19,7 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { AuthService } from './auth/auth.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DataService } from './shared/data-storage.service';
+import { AuthInterceptorService } from './auth/auth.interceptor';
+import { CommonModule } from '@angular/common';
 import { GuardTestComponent } from './guard-test/guard-test.component';
 
 
@@ -32,11 +35,12 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
     PageTestComponent,
     ResultsComponent,
     TicketCardComponent,
-    DropdownComponent,
-    GuardTestComponent,      
+    DropdownComponent, 
+    GuardTestComponent     
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -47,7 +51,11 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
     HttpClientModule
     
   ],
-  providers: [AirlineTicketService, AuthService],
+  providers: [AirlineTicketService, AuthService, DataService, {
+    provide : HTTP_INTERCEPTORS,
+    useClass : AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

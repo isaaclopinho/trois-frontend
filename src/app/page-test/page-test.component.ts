@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { AuthInterface, AuthService } from '../auth/auth.service';
+import { DataService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-page-test',
@@ -15,6 +16,7 @@ export class PageTestComponent implements OnInit, OnDestroy {
   
   isAuthenticated = false;  
   private userSubs : Subscription;
+
   
   constructor(private authService : AuthService) { }
   
@@ -22,6 +24,8 @@ export class PageTestComponent implements OnInit, OnDestroy {
     this.userSubs = this.authService.user.subscribe( user =>{
       this.isAuthenticated = !!user;
     });
+    
+
   }
 
   ngOnDestroy(): void {

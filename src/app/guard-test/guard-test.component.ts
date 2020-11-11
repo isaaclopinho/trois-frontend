@@ -11,13 +11,16 @@ import { DataService } from '../shared/data-storage.service';
 export class GuardTestComponent implements OnInit ,OnDestroy {
   dataSubs: Subscription;
   data: any[] = [];
+  isLoading = false;
 
   constructor(private dataservice : DataService) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.dataSubs = this.dataservice.getLocations().subscribe( data => {
       console.log(data);
       this.data = data;
+      this.isLoading = false;
     })
   }
   ngOnDestroy(): void {

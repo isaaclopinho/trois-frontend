@@ -11,10 +11,10 @@ const routes: Routes = [
     { path: '', redirectTo:'/passagens', pathMatch: 'full'},
     
     { path: 'passagens', component: ResultsComponent },
+    { path: 'pesquisa', component: PesquisaComponent },
     { path: 'teste', component: PageTestComponent },
     { path: 'teste2', canActivate: [AuthGuard], component: GuardTestComponent },
     { path: 'auth', component: LoginComponent },
-    { path: 'pesquisa', component: PesquisaComponent },
 
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },

@@ -14,8 +14,8 @@ import { AirlineTicketService } from './shared/airlineticket.service';
 import { MatOptgroup } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-router.module';
-import {LayoutModule} from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 
 
 
@@ -26,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     PageTestComponent,
     ResultsComponent,
+    PesquisaComponent
     
     
     

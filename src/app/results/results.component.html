@@ -1,7 +1,26 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 bg-primary">col-sm-8</div>
-        <div class="col-sm-10 bg-secondary">col-sm-4</div>
+        <div class="col-sm-2 d-flex flex-column pt-2 pb-2">
+            <b class="pb-2">Ordenar:</b>
+            <app-dropdown></app-dropdown>
+            
+        </div>
+        <div class="col-sm-10 bg-secondary">
+
+           <div class="row">
+               <div class="col-sm-1">
+               </div>
+               <div class="col-sm-10">
+                   <div class="pt-2 pb-2" *ngFor="let ticket of tickets">
+                        <app-ticket-card [airlineTicket]="ticket"  ></app-ticket-card>
+                    </div>
+               </div>
+              <div class="col-sm-1">
+              </div>
+           </div>
+
+
+        </div>
     </div>
 </div>
 

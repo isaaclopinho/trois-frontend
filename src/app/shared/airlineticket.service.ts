@@ -10,7 +10,9 @@ export class AirlineTicketService {
 
     private airlineTickets : AirlineTicket[] = [
         new AirlineTicket("BSB", "SSA", new Date(), new Date(), 100, 200, "GOL"),
-        new AirlineTicket("BSB", "", new Date(), null, 100, -1, "AZUL"),
+        new AirlineTicket("BSB", "SSA", new Date(), new Date(), 100, 3000, "AZUL"),
+        new AirlineTicket("BSB", "SSA", new Date(), new Date(), 100, 3000, "AZUL"),
+        new AirlineTicket("BSB", "SSA", new Date(), null, 100, 3000, "AZUL"),
      ];
 
       getAirlineTickets(){

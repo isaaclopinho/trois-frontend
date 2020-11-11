@@ -11,7 +11,6 @@ import { AirlineTicketService } from '../shared/airlineticket.service';
 export class ResultsComponent implements OnInit {
 
   tickets : AirlineTicket[];
-
   constructor(private airlineService : AirlineTicketService) { }
 
   ngOnInit(): void {

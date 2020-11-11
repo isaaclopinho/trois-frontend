@@ -15,7 +15,17 @@ import { MatOptgroup } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-router.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { AuthService } from './auth/auth.service';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DataService } from './shared/data-storage.service';
+import { AuthInterceptorService } from './auth/auth.interceptor';
+import { CommonModule } from '@angular/common';
+import { GuardTestComponent } from './guard-test/guard-test.component';
+
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
+
 
 
 
@@ -26,23 +36,30 @@ import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
     HeaderComponent,
     PageTestComponent,
     ResultsComponent,
-    PesquisaComponent
-    
-    
+    TicketCardComponent,
+    DropdownComponent, 
+    GuardTestComponent,     
+    PesquisaComponent  
     
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
     RouterModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
     
   ],
-  providers: [AirlineTicketService],
+  providers: [AirlineTicketService, AuthService, DataService, {
+    provide : HTTP_INTERCEPTORS,
+    useClass : AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

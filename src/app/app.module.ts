@@ -29,10 +29,7 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
     PageTestComponent,
     ResultsComponent,
     TicketCardComponent,
-    DropdownComponent,
-    
-    
-    
+    DropdownComponent,      
   ],
   imports: [
     BrowserModule,

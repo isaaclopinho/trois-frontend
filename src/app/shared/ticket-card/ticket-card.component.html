@@ -1,63 +1,68 @@
 <div class="card">
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-8">
-                <div class="row">
-                    <div class="col">
-                        <b>IDA</b>
-                        <p>{{getDateFormatted(airlineTicket.originDate)}}</p>
+            <div class="col-sm-8 d-flex flex-column justify-content-center align-items-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <b>IDA</b>
+                            <p>{{airlineTicket.getOriginDateFormatted()}}</p>
+                        </div>
+                        <div class="col">
+                            <b>{{airlineTicket.origin}}</b>
+                            <p>{{airlineTicket.origin}}</p>
+                        </div>
+                        <div class="col">
+                            <b>{{airlineTicket.destination}}</b>
+                            <p>{{airlineTicket.destination}}</p>
+                        </div>
                     </div>
-                    <div class="col">
-                        <b>{{airlineTicket.origin}}</b>
-                        <p>{{airlineTicket.origin}}</p>
-                    </div>
-                    <div class="col">
-                        <b>{{airlineTicket.destination}}</b>
-                        <p>{{airlineTicket.destination}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <img class="img-fluid img-thumbnail" style="max-height: 30px" src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
-                    </div>
-                    <div class="col">
-                        <h4>08:00</h4>
-                    </div>
-                    <div class="col">
-                        <h4>10:00</h4>
-                    </div>
-                </div>
-
-                <div class="dropdown-divider"></div>
-                <div class="row">
-                    <div class="col">
-                        <b>VOLTA</b>
-                        <p>{{getDateFormatted(airlineTicket.destinationDate)}}</p>
-                    </div>
-                    <div class="col">
-                        <b>BSB</b>
-                        <p>Brasília</p>
-                    </div>
-                    <div class="col">
-                        <b>CGH</b>
-                        <p>São Paulo</p>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid img-thumbnail" style="max-height: 30px"
+                                src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
+                        </div>
+                        <div class="col">
+                            <h4>08:00</h4>
+                        </div>
+                        <div class="col">
+                            <h4>10:00</h4>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <img class="img-fluid img-thumbnail" style="max-height: 30px" src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
+                <div class="border-top container-fluid" style="margin: 2%" *ngIf="airlineTicket.destinationDate !== null"></div>
+                <div class="container-fluid" *ngIf="airlineTicket.destinationDate !== null">
+                    <div class="row" > 
+                        <div class="col">
+                            <b>VOLTA</b>
+                            <p>{{airlineTicket.getDestinationDateFormatted()}}</p>
+                        </div>
+                        <div class="col">
+                            <b>{{airlineTicket.destination}}</b>
+                            <p>{{airlineTicket.destination}}</p>
+                        </div>
+                        <div class="col">
+                            <b>{{airlineTicket.origin}}</b>
+                            <p>{{airlineTicket.origin}}</p>
+                        </div>
                     </div>
-                    <div class="col">
-                        <h4>08:00</h4>
-                    </div>
-                    <div class="col">
-                        <h4>10:00</h4>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid img-thumbnail" style="max-height: 30px"
+                                src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
+                        </div>
+                        <div class="col">
+                            <h4>08:00</h4>
+                        </div>
+                        <div class="col">
+                            <h4>10:00</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-4 d-flex flex-column justify-content-between border-left">
-                <div class="row-sm d-flex justify-content-end">                    
+                <div class="row-sm d-flex justify-content-end">
                     <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
                 </div>
 
@@ -65,15 +70,15 @@
                 <div class="row-sm d-flex flex-column align-items-center">
 
                     Preço por adulto
-                    <h2> PREÇO </h2>
-                    <button>teste</button>
-                    
+                    <h2>U$ {{airlineTicket.totalPrice().toFixed(2)}} </h2>
+                    <button type="button" class="btn btn-primary">Selecionar</button>
+
                 </div>
 
                 <div class="row-sm d-flex justify-content-end">
                     <mat-icon aria-hidden="false" aria-label="Example home icon">facebook</mat-icon>
                 </div>
-                
+
             </div>
         </div>
     </div>

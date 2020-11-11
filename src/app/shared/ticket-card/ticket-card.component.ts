@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AirlineTicket } from '../airlineticket.model';
 
 @Component({
@@ -8,19 +8,11 @@ import { AirlineTicket } from '../airlineticket.model';
 })
 export class TicketCardComponent implements OnInit {
   
-  airlineTicket : AirlineTicket = new AirlineTicket("BSB", "CGH", new Date(), new Date(), 100, 200, "LATAM");
+  @Input() airlineTicket : AirlineTicket;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  getDateFormatted(date : Date){
-    let d = date.getDate();
-    let m = date.getMonth();
-    let y = date.getFullYear();
-    return d + "/" + m + "/" + y; 
-  }
-
 
 }

@@ -26,6 +26,8 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
 
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+
 
 
 
@@ -40,7 +42,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TicketCardComponent,
     DropdownComponent, 
     GuardTestComponent,     
-    PesquisaComponent, FooterComponent  
+    PesquisaComponent, FooterComponent , PerfilComponent
+    
     
   ],
   imports: [
@@ -53,7 +56,8 @@ import { FooterComponent } from './components/footer/footer.component';
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    
     
   ],
   providers: [AirlineTicketService, AuthService, DataService, {

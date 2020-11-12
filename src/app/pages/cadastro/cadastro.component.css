@@ -1,0 +1,46 @@
+.teste {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../../../assets/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /*Ajuste de imagem para manter proporção*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  h1{
+      font-size: 24px;
+      font-weight: bold;
+      color:#36007e;
+      padding-top: 25px;
+      padding-bottom: 25px;
+  }
+
+  .btn-enviar{
+      background-color: #271F50;
+      width: 150px;
+      border-radius: 10px;
+      font-size: 18px;
+      margin-top: 30px;
+      margin-bottom: 25px;
+      float: right;
+      opacity: 95%;
+  }
+  .btn-enviar:hover{
+      opacity: 100%;
+  }
+  input{
+      background-color: #e8edf7;
+  }
+  input:hover{
+      background-color: #BBCFF9;
+  }
+
+  label{
+      font-weight: bold;
+      color:#36007e;
+  }
+

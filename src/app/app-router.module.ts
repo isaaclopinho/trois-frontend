@@ -1,3 +1,4 @@
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ResultsComponent } from './results/results.component';
@@ -9,7 +10,7 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
 
 const routes: Routes = [
     { path: '', redirectTo:'/passagens', pathMatch: 'full'},
-    
+    {path: 'cadastro', component: CadastroComponent},
     { path: 'passagens', component: ResultsComponent },
     { path: 'pesquisa', component: PesquisaComponent },
     { path: 'teste', component: PageTestComponent },

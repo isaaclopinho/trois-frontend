@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 import { GuardTestComponent } from './guard-test/guard-test.component';
 
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 
 
@@ -39,7 +40,7 @@ import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
     TicketCardComponent,
     DropdownComponent, 
     GuardTestComponent,     
-    PesquisaComponent  
+    PesquisaComponent, CadastroComponent  
     
   ],
   imports: [

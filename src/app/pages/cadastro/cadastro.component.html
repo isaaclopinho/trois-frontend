@@ -29,11 +29,11 @@
           <label for="exampleInputPassword1">Senha</label>
           <input name="senha" ngModel type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password"  placeholder="informe uma senha" required>
         </div>
-        <div class="alert alert-danger" *ngIf="error">
+        <div class="alert alert-danger" *ngIf="error && !isLoading">
           {{error}}
       </div>
         <button type="submit" class="btn btn-primary btn-enviar">
-          {{!isLoading ? "Enviar" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
+          {{!isLoading ? "Cadastrar" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
         </button>
     
       </form>

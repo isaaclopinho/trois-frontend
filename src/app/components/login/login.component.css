@@ -3,23 +3,11 @@
   background-image: url(../../../assets/background.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; /*Ajuste de imagem para manter proporção*/
+  background-size: 100% 100%; /*Ajuste de imagem para manter proporção*/
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-form {
-  border: 3px solid #f1f1f1;
-}
 
-.container {
-  background: rgba(39, 31, 80, 0.9);
-  border-radius: 10px;
-  margin: 50px 50px 0 0;
- 
-}
 
 input[type="text"],
 input[type="password"] {

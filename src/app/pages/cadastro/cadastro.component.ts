@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,20 +9,14 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent {
 
   isLoading = false;
   error : string = null;
   
   constructor(private authService : AuthService, private router: Router) { }
   
-  ngOnInit(): void {
-  }
-
-  ngOnDestroy(): void {
-  }
-  
-  onSignup(form? : NgForm){
+  onSignup(form : NgForm){
 
     console.log(form);
     if(!form.valid){
@@ -53,6 +47,6 @@ export class CadastroComponent implements OnInit {
         this.isLoading = false;
     });
 
-    // form.reset();
+    form.reset();
   }
 }

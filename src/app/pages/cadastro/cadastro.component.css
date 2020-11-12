@@ -3,7 +3,7 @@
     background-image: url(../../../assets/background.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; /*Ajuste de imagem para manter proporção*/
+    background-size: 100% 100%; /*Ajuste de imagem para manter proporção*/
     position: relative;
     display: flex;
     justify-content: center;

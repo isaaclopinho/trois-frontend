@@ -8,7 +8,6 @@ import {MatCard, MatCardModule} from '@angular/material/card';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { PageTestComponent } from './page-test/page-test.component';
 import { ResultsComponent } from './results/results.component';
 import { AirlineTicketService } from './shared/airlineticket.service';
 import { MatOptgroup } from '@angular/material/core';
@@ -37,13 +36,12 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    PageTestComponent,
     ResultsComponent,
     TicketCardComponent,
     DropdownComponent, 
     GuardTestComponent,     
     PesquisaComponent, 
-    FooterComponent  ,
+    FooterComponent,
     CadastroComponent
     
   ],

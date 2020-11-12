@@ -11,19 +11,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isCollapsed = true;
   title = "TROIS PASSAGENS ÁEREAS";
 
+  isAuthenticated = false;  
+  private userSubs : Subscription;
 
-  constructor(public authService : AuthService) { }
-
+  
+  constructor(private authService : AuthService) { }
+  
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    
+    this.userSubs = this.authService.user.subscribe( user =>{
+      this.isAuthenticated = !!user;
+    });
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    
+    this.userSubs.unsubscribe();
   }
 
+  
+  logout(){
+    this.authService.logout();
+  }
 }

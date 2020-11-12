@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,9 +11,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
-
+  isLoading = false;
+  error : string = null;
+  
+  constructor(private authService : AuthService, private router: Router) { }
+  
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+  }
+  
+  onSignup(form? : NgForm){
+
+    console.log(form);
+    if(!form.valid){
+      this.error = "Todos os campos devem ser preenchidos!"
+      return;
+    }
+    
+    let params = {
+      cpf : form.controls.cpf.value,
+      email : form.controls.email.value,
+      login : form.controls.login.value,
+      nome : form.controls.nome.value,
+      senha : form.controls.senha.value,
+    };
+
+    console.log(params);
+
+    this.isLoading = true;
+    
+
+    this.authService.signup(params).subscribe(resData => {
+        this.router.navigate(['auth']);
+        this.isLoading = false;
+    },
+    err => {
+        console.log(err.error);
+        this.error = err.error.titulo ?? "Erro!";
+        this.isLoading = false;
+    });
+
+    // form.reset();
+  }
 }

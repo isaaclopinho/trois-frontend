@@ -27,6 +27,7 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -42,7 +43,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     DropdownComponent, 
     GuardTestComponent,     
     PesquisaComponent, 
-    FooterComponent  
+    FooterComponent  ,
+    CadastroComponent
     
   ],
   imports: [
@@ -55,7 +57,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [AirlineTicketService, AuthService, DataService, {

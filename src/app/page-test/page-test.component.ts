@@ -44,17 +44,17 @@ export class PageTestComponent implements OnInit, OnDestroy {
     //   senha : form.value.senha
     // };
 
-    this.isLoading = true;
-    //colocar params quando tiver tela de signup
-    this.authService.signup().subscribe(resData => {
-        console.log(resData);
-        this.isLoading = false;
-    },
-    err => {
-        console.log(err.error);
-        this.error = err.error.titulo;
-        this.isLoading = false;
-    });
+    // this.isLoading = true;
+    // //colocar params quando tiver tela de signup
+    // this.authService.signup().subscribe(resData => {
+    //     console.log(resData);
+    //     this.isLoading = false;
+    // },
+    // err => {
+    //     console.log(err.error);
+    //     this.error = err.error.titulo;
+    //     this.isLoading = false;
+    // });
   }
 
   onLogin(form? : NgForm){

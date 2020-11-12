@@ -1,41 +1,43 @@
 <div class="teste" >
-    
-    <form>
+    <fieldset [disabled]="isLoading">
+      
+    <form #f="ngForm" (ngSubmit)="onSignup(f)" >
         <h1>Cadastre-se e aproveite os melhores preços </h1>
         <div class="form-group">
             <label for="nome">Nome Completo</label>
-            <input type="text" class="form-control " id="nome" aria-describedby="emailHelp" placeholder="Insira seu nome">
+            <input name="nome" ngModel type="text" class="form-control" placeholder="Insira seu nome" required>
             
         </div>
 
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control " id="nome" aria-describedby="emailHelp" placeholder="Insira seu nome de usuário">
+            <input name="login" ngModel type="text" class="form-control"  autocomplete="username" placeholder="Insira seu nome de usuário" required>
         </div>
 
         <div class="form-group">
             <label for="cpf">Cpf</label>
-            <input type="text" class="form-control .cpf-mask" placeholder="000.000.000-00" cpf-mask="000.000.000-00" maxlength="11" autocomplete="off">
+            <input name="cpf" ngModel type="text" class="form-control .cpf-mask" placeholder="000.000.000-00" autocomplete="off" cpf-mask="000.000.000-00" maxlength="11" autocomplete="off" required>
             
         </div>
         
         <div class="form-group">
           <label for="email">Email </label>
-          <input type="email" class="form-control"   placeholder="insira seu email">
+          <input name="email" ngModel type="email" class="form-control"  placeholder="insira seu email" autocomplete="email" required>
           
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="informe uma senha">
+          <input name="senha" ngModel type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password"  placeholder="informe uma senha" required>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Confirmação senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="confirme sua senha">
-        </div>
-        
-        <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+        <div class="alert alert-danger" *ngIf="error">
+          {{error}}
+      </div>
+        <button type="submit" class="btn btn-primary btn-enviar">
+          {{!isLoading ? "Enviar" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
+        </button>
     
       </form>
+    </fieldset>
 </div>
 
 

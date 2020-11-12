@@ -26,22 +26,14 @@ export class AuthService {
 
     }
 
-    signup(data?){
-        let params = {
-            "cpf": "11111111111",
-            "email": "ads123ass@sadasd.com",
-            "login": "sdadsadsdasdsdasadsadsd",
-            "nome": "dsadsadsaasd",
-            "senha": "123456"
-        };
-
-        return this.http.post(this.URL + "/signup", data ?? params);
+    signup(params){
+        return this.http.post(this.URL + "/signup", params);
     }
 
     login(data?){
         let params= {
-            "usuario" : "ads123asdas@sadasd.com", //usuario eh email
-            "senha" : "123456"
+            "usuario" : "sdasdaads@saddsa.com", //usuario eh email
+            "senha" : "sdadsasda"
         }
 
         return this.http.post<AuthInterface>(this.URL + "/login", data ?? params).pipe(tap(resData => {     

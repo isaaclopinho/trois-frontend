@@ -29,8 +29,8 @@ export class AuthService {
     signup(data?){
         let params = {
             "cpf": "11111111111",
-            "email": "ads123asdas@sadasd.com",
-            "login": "sdadsadsdasdsaaasd",
+            "email": "ads123ass@sadasd.com",
+            "login": "sdadsadsdasdsdasadsadsd",
             "nome": "dsadsadsaasd",
             "senha": "123456"
         };

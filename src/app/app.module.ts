@@ -25,7 +25,11 @@ import { CommonModule } from '@angular/common';
 import { GuardTestComponent } from './guard-test/guard-test.component';
 
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
+<<<<<<< HEAD
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+=======
+import { FooterComponent } from './components/footer/footer.component';
+>>>>>>> 10724e146f74d2a75a63feecaee8cae049885e33
 
 
 
@@ -40,7 +44,11 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     TicketCardComponent,
     DropdownComponent, 
     GuardTestComponent,     
+<<<<<<< HEAD
     PesquisaComponent, CadastroComponent  
+=======
+    PesquisaComponent, FooterComponent  
+>>>>>>> 10724e146f74d2a75a63feecaee8cae049885e33
     
   ],
   imports: [

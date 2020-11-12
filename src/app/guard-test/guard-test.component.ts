@@ -17,9 +17,15 @@ export class GuardTestComponent implements OnInit ,OnDestroy {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.dataSubs = this.dataservice.getLocations().subscribe( data => {
-      console.log(data);
-      this.data = data;
+    // this.dataSubs = this.dataservice.getLocations().subscribe( data => {
+    //   console.log(data);
+    //   this.data = data;
+    //   this.isLoading = false;
+    // })
+
+    this.dataSubs = this.dataservice.searchTickets().subscribe( data => {
+      this.data = data.data;
+      console.log(data.data);
       this.isLoading = false;
     })
   }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let da of data">{{da.name}} {{da.iataCode}}</li>
+        <li class="list-group-item" *ngFor="let da of data">{{da.id}} {{da.type}} {{da.source}} </li>
     </ul>
 
     <div class="spinner-border" role="status" *ngIf="isLoading">

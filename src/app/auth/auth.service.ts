@@ -44,28 +44,28 @@ export class AuthService {
             "senha" : "123456"
         }
 
-        return this.http.post<AuthInterface>(this.URL + "/login", data ?? params).pipe(tap(resData => {
-            const loadedUser = new User(resData.login, resData.userId, resData.token);
-
+        return this.http.post<AuthInterface>(this.URL + "/login", data ?? params).pipe(tap(resData => {     
+                const loadedUser = new User(resData.login, resData.userId, resData.token);
                 this.user.next(loadedUser);
                 const expirationDuration = new Date(loadedUser._tokenExpirationDate).getTime() - new Date().getTime();
                 console.log("expira em: " + expirationDuration);
                 this.autoLogout(expirationDuration);
-                localStorage.setItem('userData', JSON.stringify(loadedUser));
+                localStorage.setItem('userData', JSON.stringify(resData));
             }
 
         ));
     }
 
     autoLogin(){
-        const user: {login : string, userId: string, token : string} = JSON.parse(localStorage.getItem('userData'));
 
+        const user: {login : string, userId: string, token : string} = JSON.parse(localStorage.getItem('userData'));
+        
         if(!user){
             return;
         }
         
         const loadedUser = new User(user.login, user.userId, user.token);
-
+            
         if(loadedUser.token){
             this.user.next(loadedUser);
             const expirationDuration = new Date(loadedUser._tokenExpirationDate).getTime() - new Date().getTime();

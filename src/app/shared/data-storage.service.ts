@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { exhaustMap, map, take, tap } from "rxjs/operators";
 import { Subject } from 'rxjs';
 import { Airports } from './airports.model';
+import { FlightOffers } from './flightoffers.model';
 @Injectable({
     providedIn: 'root'
 })
@@ -13,11 +14,27 @@ export class DataService {
 
     constructor(private http : HttpClient, private authService : AuthService ){}
 
-    getLocations(){
-        console.log("test");
+    getLocations(location?){
            return this.http.post<Airports[]>(this.authService.URL + '/tickets/search/location', {
-                "location": "US"
-           }).pipe(map(resData => resData.map((x) => {return {"name" : x.name, "iataCode" : x.iataCode}})));       
-     
+                "location": location ?? "US"
+           }).pipe(map(resData => resData.map((x) => {return {"name" : x.name, "iataCode" : x.iataCode}})));  
     }
+
+    
+    searchTickets(){
+        return this.http.post<FlightOffers>(this.authService.URL + '/tickets/offers', {
+            "adults": 1,
+            "children": 0,
+            "currencyCode": "BRL",
+            "departureDate": "2021-01-10",
+            "destinationCode": "ATL",
+            "infants": 0,
+            "max": 5,
+            "originCode": "LAX",
+            "returnDate": "2021-01-20"
+        })
+    }
+
+
+
 }

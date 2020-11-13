@@ -5,6 +5,7 @@
   justify-content: flex-end;
   left: 0;
   width: 100%;
+  position: static;
 }
 
 .footer span {

@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { stringify } from 'querystring';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { DataService } from 'src/app/shared/data-storage.service';
 
@@ -24,11 +25,22 @@ export class PesquisaComponent implements OnInit{
   loadingLocations = false;
   locations = [];
 
-  constructor(private dataService : DataService, private _snackBar: MatSnackBar) {    
+  searchSubscription : Subscription;
+  locationSubscription : Subscription;
+
+
+  constructor(private dataService : DataService, private router : Router) {    
   }
 
 
   ngOnInit(): void {
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubscription?.unsubscribe();
+    this.locationSubscription?.unsubscribe();
   }
 
   ngAfterViewInit(): void {
@@ -69,9 +81,10 @@ export class PesquisaComponent implements OnInit{
 
     this.isLoading = true;    
 
-    this.dataService.searchTickets(params).subscribe(resData => {
+    this.searchSubscription = this.dataService.searchTickets(params).subscribe(data => {
         this.isLoading = false;
-        console.log(resData);
+        console.log(data);
+        this.router.navigate(['/passagens', JSON.stringify(data)]);
     },
     err => {
         console.log(err.error);
@@ -79,14 +92,13 @@ export class PesquisaComponent implements OnInit{
         this.isLoading = false;
     });
 
-    form.reset();
   }
 
 
   searchLocations(value : string){
     this.loadingLocations = true;
 
-    this.dataService.getLocations(value).subscribe(locations => {
+    this.locationSubscription = this.dataService.getLocations(value).subscribe(locations => {
       console.log(locations);
       this.locations = locations;
       this.loadingLocations = false;

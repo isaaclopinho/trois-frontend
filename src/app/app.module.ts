@@ -1,3 +1,4 @@
+import { PagamentoComponent } from './pages/pagamento/pagamento.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ControlContainer, FormControlName, FormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     PesquisaComponent, 
     FooterComponent,
     CadastroComponent,
-    PerfilComponent  
+    PerfilComponent ,
+    PagamentoComponent 
   ],
   imports: [
     BrowserModule,

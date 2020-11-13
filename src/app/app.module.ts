@@ -27,6 +27,7 @@ import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
@@ -43,10 +44,8 @@ import { FormsModule } from '@angular/forms';
     GuardTestComponent,     
     PesquisaComponent, 
     FooterComponent,
-    CadastroComponent
-
-
-    
+    CadastroComponent,
+    PerfilComponent  
   ],
   imports: [
     BrowserModule,
@@ -59,8 +58,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
-    
+    FormsModule   
   ],
   providers: [AirlineTicketService, AuthService, DataService, {
     provide : HTTP_INTERCEPTORS,

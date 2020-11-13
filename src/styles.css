@@ -12,3 +12,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .v-middle{
     vertical-align: middle;
 }
+
+.paragrafo{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    color:#5C6BC0;
+    
+}

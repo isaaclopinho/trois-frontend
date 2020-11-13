@@ -3,7 +3,6 @@
   bottom: 0;
   display: flex;
   justify-content: flex-end;
- 
   left: 0;
   width: 100%;
 }
@@ -13,3 +12,4 @@
   font-size: 1.1rem;
   color: white;
 }
+

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar'
@@ -23,7 +22,6 @@ import { DataService } from './shared/data-storage.service';
 import { AuthInterceptorService } from './auth/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { GuardTestComponent } from './guard-test/guard-test.component';
-
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
@@ -45,7 +43,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     TicketCardComponent,
     DropdownComponent, 
     GuardTestComponent,     
-    PesquisaComponent, FooterComponent , PerfilComponent
+    PesquisaComponent, FooterComponent , PerfilComponent 
     
     
   ],
@@ -60,7 +58,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    
+    MatToolbarModule
     
     
 

@@ -32,6 +32,9 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +60,10 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    
+    
+    
+
     
     
   ],

@@ -1,0 +1,10 @@
+div ul li a{
+    color: #5C6BC0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+div ul li a:hover{
+    color: #271F50;
+    
+}

@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,8 @@ import { FormsModule } from '@angular/forms';
     PesquisaComponent, 
     FooterComponent,
     CadastroComponent
+
+
     
   ],
   imports: [

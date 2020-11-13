@@ -14,9 +14,9 @@ export class DataService {
 
     constructor(private http : HttpClient, private authService : AuthService ){}
 
-    getLocations(location?){
+    getLocations(location){
            return this.http.post<Airports[]>(this.authService.URL + '/tickets/search/location', {
-                "location": location ?? "US"
+                "location": location
            }).pipe(map(resData => resData.map((x) => {return {"name" : x.name, "iataCode" : x.iataCode}})));  
     }
 

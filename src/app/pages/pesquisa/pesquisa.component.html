@@ -1,6 +1,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-sm-6">
+         <fieldset [disabled]="isLoading">
          <form (ngSubmit)="onSearch(f)" #f="ngForm" >
             <div class="container">
                <label for="origem"><b style="color:white;">Origem</b></label>
@@ -45,9 +46,15 @@
                   </div>
                </div>
                <br>
-               <button type="submit">Procurar → </button>
+               <div class="alert alert-danger" *ngIf="error && !isLoading">
+                  {{error}}
+              </div>
+               <button type="submit" >
+                  {{!isLoading ? "Procurar →" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
+                </button>
             </div>
          </form>
+      </fieldset>
       </div>
       <div class="col-sm-6">
          <img src="../../../assets/back-pesquisa.png" class="img-fluid" alt="Imagem responsiva">

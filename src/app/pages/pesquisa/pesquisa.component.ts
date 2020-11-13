@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { stringify } from 'querystring';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
@@ -23,8 +24,9 @@ export class PesquisaComponent implements OnInit{
   loadingLocations = false;
   locations = [];
 
-  constructor(private dataService : DataService) {    
+  constructor(private dataService : DataService, private _snackBar: MatSnackBar) {    
   }
+
 
   ngOnInit(): void {
   }
@@ -77,7 +79,7 @@ export class PesquisaComponent implements OnInit{
         this.isLoading = false;
     });
 
-    // form.reset();
+    form.reset();
   }
 
 

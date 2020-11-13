@@ -5,7 +5,6 @@ import { ResultsComponent } from './results/results.component';
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { GuardTestComponent } from './guard-test/guard-test.component';
 import { Auth2Guard } from './auth/auth2.guard';
 
 import {PerfilComponent} from './pages/perfil/perfil.component';
@@ -13,9 +12,8 @@ const routes: Routes = [
     { path: '', redirectTo:'/auth', pathMatch: 'full'},
     { path: 'auth', canActivate: [Auth2Guard], component: LoginComponent },
     { path: 'cadastro', canActivate: [Auth2Guard], component: CadastroComponent},
-    { path: 'passagens',canActivate: [AuthGuard], component: ResultsComponent },
+    { path: 'passagens',canActivate: [AuthGuard], component: ResultsComponent}, 
     { path: 'pesquisa', canActivate: [AuthGuard], component: PesquisaComponent },
-    { path: 'teste2', canActivate: [AuthGuard], component: GuardTestComponent },
     { path: 'perfil', canActivate: [AuthGuard], component: PerfilComponent },
     { path: '**', redirectTo: '/auth'}
 

@@ -1,53 +1,49 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-sm-6">
-         <form>
+         <form (ngSubmit)="onSearch(f)" #f="ngForm" >
             <div class="container">
                <label for="origem"><b style="color:white;">Origem</b></label>
-               <select class="form-control" id="origem">
-                  <option>Brasilia (BSB)</option>
-                  <option>São Paulo (SP)</option>
-                  <option>Recife (PE)</option>
-                  <option>Salvador(BA)</option>
-                  <option>Fortaleza(CE)</option>
-               </select>
+               <div id="origem" class="dropdown" ngbDropdown #dropOrigin="ngbDropdown">
+                  <input name="originCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropOrigin.open(); resetData()"  type="text" id="dropdownMenuButton" #inputOrigin />
+                 
+                  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                     <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="inputOrigin.value = location.iataCode">{{location.iataCode}} - {{location.name}}</a>
+                  </div>    
+              </div>
                <br>
                <label for="destino"><b style="color: white;">Destino</b></label>
-               <select class="form-control" id="destino">
-                  <option>Brasilia (BSB)</option>
-                  <option>São Paulo (SP)</option>
-                  <option>Recife (PE)</option>
-                  <option>Salvador(BA)</option>
-                  <option>Fortaleza(CE)</option>
-               </select>
+               <div id="destino" class="dropdown" ngbDropdown #dropDestination="ngbDropdown">
+                  <input name="destinationCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropDestination.open(); resetData()"  type="text" id="dropdownMenuButton" #inputDestination />
+                 
+                  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="inputDestination.value = location.iataCode">{{location.iataCode}} - {{location.name}}</a>
+                  </div>    
+              </div>
                <br>
-               <div style = "display: inline-block;">
-                  <label for=""><b style="color: white;">Ida</b></label><br>
-                  <input type="date"  name="" required />
+               <div class="row">
+                  <div class="col" style = "display: inline-block;">
+                     <label for=""><b style="color: white;">Ida</b></label><br>
+                     <input name="departureDate" ngModel type="date"  required />
+                  </div>
+                  <div class="col" style = "display: inline-block;">
+                     <label for=""><b style="color: white;">Volta</b></label><br>
+                     <input name="returnDate" ngModel type="date"  required />
+                  </div>
                </div>
-               <div style = "display: inline-block;">
-                  <label for=""><b style="color: white;">Volta</b></label><br>
-                  <input type="date"  name="" required />
-               </div>
+               
+
                <br><br>
-               <label for="pessoas"><b style="color: white;">Adultos</b></label>
-               <select class="form-control" id="pessoas">
-                  <option>1 Adulto</option>
-                  <option>2 Adultos</option>
-                  <option>3 Adultos</option>
-                  <option>4 Adultos</option>
-                  <option>5 Adultos</option>
-               </select>
-               <br>
-               <label for="criancas"><b style="color: white;">Crianças</b></label>
-               <select class="form-control" id="criancas">
-                 <option>Sem Crianças</option>
-                 <option> 1 Crianca</option>
-                  <option>2 Crianças</option>
-                  <option>3 Crianças</option>
-                  <option>4 Crianças</option>
-                  <option>5 Crianças</option>
-               </select>
+               <div class="row">
+                  <div class="col">
+                     <label for="adultos"><b style="color: white;">Adultos</b></label>
+                     <input type="number" ngModel="1" min="0" max="9" class="form-control" id="adultos" name="adults" required/>
+                  </div>
+                  <div class="col">
+                     <label for="criancas"><b style="color: white;">Crianças</b></label>
+                     <input type="number" ngModel="0" min="0" max="9" class="form-control" id="criancas" name="children"  required />
+                  </div>
+               </div>
                <br>
                <button type="submit">Procurar → </button>
             </div>

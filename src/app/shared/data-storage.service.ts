@@ -21,18 +21,8 @@ export class DataService {
     }
 
     
-    searchTickets(){
-        return this.http.post<FlightOffers>(this.authService.URL + '/tickets/offers', {
-            "adults": 1,
-            "children": 0,
-            "currencyCode": "BRL",
-            "departureDate": "2021-01-10",
-            "destinationCode": "ATL",
-            "infants": 0,
-            "max": 5,
-            "originCode": "LAX",
-            "returnDate": "2021-01-20"
-        })
+    searchTickets(params){
+        return this.http.post<FlightOffers>(this.authService.URL + '/tickets/offers', params);
     }
 
 

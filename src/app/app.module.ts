@@ -26,7 +26,7 @@ import { GuardTestComponent } from './guard-test/guard-test.component';
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { FormsModule } from '@angular/forms';
+import { ControlContainer, FormControlName, FormsModule } from '@angular/forms';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
@@ -58,7 +58,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule   
+    FormsModule   ,
+
   ],
   providers: [AirlineTicketService, AuthService, DataService, {
     provide : HTTP_INTERCEPTORS,

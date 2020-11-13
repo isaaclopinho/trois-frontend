@@ -1,14 +1,16 @@
-.footer{
-    background-color:#271f50;
-    bottom: 0;
-    display: flex;
-    justify-content: flex-end;
-    
-
+.footer {
+  background-color: #271f50;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  width: 100%;
+  position: static;
 }
 
 .footer span {
-    font-weight: 300;
-    font-size: 1.1rem;
-    color: white;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: white;
 }
+

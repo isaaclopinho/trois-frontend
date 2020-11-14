@@ -1,57 +1,79 @@
-
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 d-flex flex-column pt-2 pb-2" style="background:#5C6BC0 ;">
-            <p class="pa-result">Detalhes da compra</p>
-            
-            
-        </div>
-        <div class="col-sm-10 .bg-light">
-
-           <div class="row">
-               <div class="col-sm-1" style="background: #5C6BC0;">
-               </div>
-               
-              <div class="col-sm-1">
-                
-              </div>
-            
-           </div>
-
-        <div class="row">
-            <h1 class="texto">Falta Pouco! Complete seus dados e finalize sua compra.</h1>
-            <div class="card pg-card shadow p-3 mb-5 bg-white rounded">
-                <p class="texto">Como você quer pagar?</p>
-                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pagamentos" id="ct-credito" value="opcao1" checked>
-                    <label class="form-check-label" for="ct-credito">
-                      Cartão de Crédito
-                    </label>
-                  </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pagamentos" id="ct-debito" value="opcao2" checked>
-                    <label class="form-check-label" for="ct-debito">
-                      Cartão de Débito
-                    </label>
-                  </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pagamentos" id="boleto" value="opcao3" checked>
-                    <label class="form-check-label" for="boleto1">
-                      Boleto Báncario
-                    </label>
-                  </div>
-                  <div>
-                    <button type="button" class="btn btn-primary btn-finalizar">Finalizar</button>
-                  </div>
-                  
-
-            </div>
-        </div>
-        </div>
-
-        
+  <div class="row">
+    <div class="col-auto d-inline flex-column pt-2 pb-2" style="background:#5C6BC0;">
+      <p>Detalhes da compra</p>
+      <p>{{orderData.id}}</p>
+      <p>{{orderData.codTransacao}}</p>
+      <p>{{orderData.dataStatus}}</p>
+      <p>{{orderData.dataTransacao}}</p>
+      <p>{{orderData.status}}</p>
     </div>
+    <div class="col .bg-light">
+
+      <div class="row">
+        <div class="col-sm-1" style="background: #5C6BC0;">
+        </div>
+
+        <div class="col-sm-1">
+
+        </div>
+
+      </div>
+
+      <div class="row d-flex justify-content-center align-items-center">
+        <h1 class="texto">Falta Pouco! Complete seus dados e finalize sua compra.</h1>
+        <div class="card ">
+          <div class="card-header">
+            Checkout: R$ {{orderData.valorTransacao}}
+          </div>
+          <div class="card-body">
+            <fieldset [disabled]="isLoading">
+            <form #f="ngForm" (ngSubmit)="checkout(f)">
+
+              <div class="d-flex">
+                <div class="col-sm-8">
+                  <input type="text" name="name" class="form-control" placeholder="Nome" ngModel>
+
+                </div>
+                <div class="col">
+                  <div class="d-flex pl-2">
+                    <input type="text" name="month" class="form-control" placeholder="Mês" ngModel required maxlength="2">
+                    <input type="text" name="year" class="form-control" placeholder="Ano" ngModel required maxlength="4">
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex">
+                <div class="col-sm-8">
+                  <input type="text" name="cardNumber" class="form-control" placeholder="4111 1111 1111 1111" ngModel maxlength="16" required>
+
+
+                </div>
+                <div class="col">
+                  <div class="d-flex pl-2">
+                    <input type="text" name="cvc" class="form-control" placeholder="CVC" ngModel required maxlength="3">
+                  </div>
+                </div>
+
+              </div>
+              <div class="alert alert-danger" *ngIf="error && !isLoading">
+                {{error}}
+            </div>
+              <br>
+              <button type="submit" class="btn btn-primary btn-finalizar">
+                {{!isLoading ? "Finalizar" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
+                
+              </button>
+            </form>
+          </fieldset>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 
 </div>

@@ -42,6 +42,13 @@ export class DataService {
         return this.http.post(this.authService.URL + "/payment/create", data);
     }
 
+    checkout(code : string){
+        let params = {
+                "status": "APROVADO",
+                "transactionCode":  code
+        }
 
+        return this.http.post(this.authService.URL + "/payment/order/response", params);
+    }
 
 }

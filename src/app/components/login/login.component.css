@@ -1,24 +1,16 @@
 .main-container {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url(../../../assets/background.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%; /*Ajuste de imagem para manter proporção*/
-  position: relative;
+    background-image: url(../../../assets/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /*Ajuste de imagem para manter proporção*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
 }
 
-
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
 
 button {
   background-color: #5172ed;
@@ -39,12 +31,6 @@ button:hover {
   width: auto;
   padding: 10px 18px;
   background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
- 
 }
 
 .btn-cad {

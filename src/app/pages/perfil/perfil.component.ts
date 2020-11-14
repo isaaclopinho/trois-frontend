@@ -23,6 +23,9 @@ export class PerfilComponent implements OnInit, OnDestroy {
   isLoadingFav = false;
   isLoadingCheckouts = false;
 
+  noFavs = false;
+  noOrders = false;
+
   constructor(private userService: AuthService, private dataService : DataService) { }
 
 
@@ -43,6 +46,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
     }, err => {
       console.log(err)
       this.isLoadingFav = false;
+      this.noFavs = true;
     });
     this.subscriptionCheckouts = this.dataService.getOrders().subscribe(data => {
       this.orders = data;
@@ -50,6 +54,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
     }, err => {
       console.log(err);
       this.isLoadingCheckouts=false;
+      this.noOrders = true;
     })
   }
 

@@ -18,6 +18,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
   isLoading = false;
   error = null;
 
+  noData = false;
+
   searchSubscription : Subscription;
 
   returnDate : string;
@@ -68,6 +70,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
             console.log(err.error);
             this.error = err.error.titulo ?? 'Erro!';
             this.isLoading = false;
+            this.noData = true;
           }
         );
     }else{

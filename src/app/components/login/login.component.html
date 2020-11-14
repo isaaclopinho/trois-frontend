@@ -7,7 +7,7 @@
           <img src="../../../assets/logo.png" alt="logo" class="rounded" style="width: 20%;">
         </div>
         <label for="uname" style="flex-wrap: wrap;"><b>E-mail</b></label>
-        <input type="text" class="form-control " placeholder="Digite seu e-mail..." name="email" ngModel required />
+        <input type="text" class="form-control " placeholder="Digite seu e-mail..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  name="email" ngModel required />
         <label for=""><b>Senha</b></label>
         <input type="password"  class="form-control" placeholder="Digite sua senha..." name="senha" ngModel required />
         <div class="alert alert-danger" *ngIf="error && !isLoading">

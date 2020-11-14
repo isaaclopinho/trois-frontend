@@ -5,24 +5,24 @@
         <h1>Cadastre-se e aproveite os melhores preços </h1>
         <div class="form-group">
             <label for="nome">Nome Completo</label>
-            <input name="nome" ngModel type="text" class="form-control" placeholder="Insira seu nome" required>
+            <input name="nome" ngModel type="text" class="form-control" pattern="[a-zA-Z\s]+" placeholder="Insira seu nome" required>
             
         </div>
 
         <div class="form-group">
             <label for="username">Username</label>
-            <input name="login" ngModel type="text" class="form-control"  autocomplete="username" placeholder="Insira seu nome de usuário" required>
+            <input name="login" ngModel type="text" class="form-control" pattern="[a-zA-Z0-9]+" autocomplete="username" placeholder="Insira seu nome de usuário" required>
         </div>
 
         <div class="form-group">
             <label for="cpf">Cpf</label>
-            <input name="cpf" ngModel type="text" class="form-control .cpf-mask" placeholder="000.000.000-00" autocomplete="off" cpf-mask="000.000.000-00" maxlength="11" autocomplete="off" required>
+            <input name="cpf" ngModel type="text" class="form-control .cpf-mask" pattern="\d*" placeholder="000.000.000-00" autocomplete="off" cpf-mask="000.000.000-00" maxlength="11" autocomplete="off" required>
             
         </div>
         
         <div class="form-group">
           <label for="email">Email </label>
-          <input name="email" ngModel type="email" class="form-control"  placeholder="insira seu email" autocomplete="email" required>
+          <input name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel type="email" class="form-control"  placeholder="insira seu email" autocomplete="email" required>
           
         </div>
         <div class="form-group">

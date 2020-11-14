@@ -20,7 +20,7 @@ export class CadastroComponent {
 
     console.log(form);
     if(!form.valid){
-      this.error = "Todos os campos devem ser preenchidos!"
+      this.error = "Todos os campos devem ser preenchidos  ou há campos inválidos!"
       return;
     }
     

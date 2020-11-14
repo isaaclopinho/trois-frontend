@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   onLogin(form : NgForm){
     if(!form.valid){
-      this.error = "Todos os campos devem ser preenchidos!"      
+      this.error = "Campos inválidos!"      
       return;
     }
     

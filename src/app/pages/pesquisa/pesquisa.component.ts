@@ -57,10 +57,11 @@ export class PesquisaComponent implements OnInit{
       .subscribe(value => { this.searchLocations(value)});
   }
   
+  
   onSearch(form : NgForm){
 
-    console.log(form);
 
+  console.log(form);
     if(!form.valid){
       this.error = "Todos os campos devem ser preenchidos!"
       return;
@@ -70,29 +71,27 @@ export class PesquisaComponent implements OnInit{
       "children": form.controls.children.value,
       "currencyCode": "BRL",
       "departureDate": form.controls.departureDate.value,
-      "destinationCode": form.controls.destinationCode.value.toUpperCase(),
+      "destinationCode": form.controls.destinationCode.value.split('|')[0],
+      "destinationName" : form.controls.destinationCode.value.split('|')[1],
       "infants": 0,
       "max": 5,
-      "originCode": form.controls.originCode.value.toUpperCase(),
+      "originCode": form.controls.originCode.value.split('|')[0],
+      "originName": form.controls.originCode.value.split('|')[1],
       "returnDate": form.controls.returnDate.value
     };
 
-    console.log(params);
-
-    this.isLoading = true;    
-
-    this.searchSubscription = this.dataService.searchTickets(params).subscribe(data => {
-        this.isLoading = false;
-        console.log(data);
-        this.router.navigate(['/passagens', JSON.stringify(data)]);
-    },
-    err => {
-        console.log(err.error);
-        this.error = err.error.titulo ?? "Erro!";
-        this.isLoading = false;
-    });
-
+    this.router.navigate(['/passagens', params]);    
   }
+
+  setInputOrigin(iataCode : string){
+    this.form.controls.originCode.setValue(iataCode.toUpperCase());
+  }
+
+  setInputDestination(iataCode : string){
+    this.form.controls.destinationCode.setValue(iataCode.toUpperCase());
+  }
+
+
 
 
   searchLocations(value : string){

@@ -27,7 +27,8 @@ export class PagamentoComponent implements OnInit, OnDestroy {
    this.orderData = this.router.snapshot.params as Order;
 
     console.log(this.orderData);
-    if (Object.keys(this.orderData).length) {
+    if (!Object.keys(this.orderData).length) {
+      this.r.navigate(['pesquisa']);
     }
   }
 

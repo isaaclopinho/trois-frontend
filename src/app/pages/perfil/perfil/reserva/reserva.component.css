@@ -1,0 +1,25 @@
+
+.reservas{
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #7E7171;  
+   
+}
+
+.reservas:hover{
+    color: #271f50;
+}
+
+.detalhes{
+    margin-inline-start: auto;
+    background: #5C6BC0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.detalhes:hover{
+    background: #1a237e;
+}

@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy{
     //colocar params quando tiver tela de signup
     this.authService.login(params).subscribe(resData => {
         this.isLoading = false;
-        this.router.navigate(['passagens']);
+        this.router.navigate(['pesquisa']);
     },
     err => {
         console.log(err.error);

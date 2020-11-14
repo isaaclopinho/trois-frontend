@@ -26,6 +26,7 @@ import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ReservaComponent } from './pages/perfil/perfil/reserva/reserva.component';
 
 
 
@@ -44,7 +45,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 
     PerfilComponent ,
     PagamentoComponent,
-    DropdownComponent  
+    DropdownComponent,
+    ReservaComponent  
 
   ],
   imports: [

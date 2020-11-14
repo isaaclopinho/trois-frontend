@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body" >
+       <div class="d-flex flex-row">
+          <div class="p-2 reservas">{{order.id}}</div>
+          <div class="p-2 reservas">{{order.codTransacao}}</div>
+          <div class="p-2 reservas">R$ {{order.valorTransacao}}</div> 
+           <div class="p-2 detalhes" (click)="checkout()" [ngStyle]="order.status !== 'PROCESSANDO' ? {'pointer-events': 'none', 'background-color': 'green'} : {}">{{order.status !== "PROCESSANDO"? "Aprovado" : "Checkout"}}</div>
+       </div>
+    </div>
+ </div>

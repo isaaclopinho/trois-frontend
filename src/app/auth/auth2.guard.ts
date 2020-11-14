@@ -25,7 +25,7 @@ export class Auth2Guard implements CanActivate {
       map((user) => {
         const isAuth = !!user;
         if (isAuth) 
-          return this.router.createUrlTree(['/passagens']);
+          return this.router.createUrlTree(['/pesquisa']);
 
         return true;
       })

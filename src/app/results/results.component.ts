@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from '../shared/data-storage.service';
 import {FlightOffers, FlightOffer, Dictionaries} from '../shared/flightoffers.model';
@@ -28,7 +28,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   destinationName : string;
 
 
-  constructor(private dataService : DataService, private router : ActivatedRoute) { }
+  constructor(private dataService : DataService, private router : ActivatedRoute, private r : Router) { }
 
   ngOnDestroy(): void {
     this.searchSubscription?.unsubscribe();   
@@ -70,6 +70,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
             this.isLoading = false;
           }
         );
+    }else{
+      this.r.navigate(['pesquisa']);
     }
   }
 

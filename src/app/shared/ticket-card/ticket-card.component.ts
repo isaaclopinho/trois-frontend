@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
 import { DataService } from '../data-storage.service';
@@ -22,7 +23,7 @@ export class TicketCardComponent implements OnInit , OnDestroy {
   favoriteSubscription : Subscription;
   orderSubscription : Subscription;
 
-  constructor(private dataservice : DataService) { }
+  constructor(private dataservice : DataService, private router : Router) { }
 
   ngOnInit(): void {
     this.dataservice.paymentLoading.subscribe(x => {
@@ -179,6 +180,9 @@ export class TicketCardComponent implements OnInit , OnDestroy {
 
     this.orderSubscription = this.dataservice.createPayment(JSON.stringify(f)).subscribe(data => {
       console.log(data);
+
+
+      this.router.navigate(['/pagamento', data]);  
 
       this.dataservice.paymentLoading.next(false);
 

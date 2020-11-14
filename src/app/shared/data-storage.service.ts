@@ -10,7 +10,7 @@ import { FlightOffers } from './flightoffers.model';
 })
 export class DataService {
 
-    data = new Subject<any>();
+    public paymentLoading = new Subject<boolean>();
 
     constructor(private http : HttpClient, private authService : AuthService ){}
 
@@ -38,6 +38,9 @@ export class DataService {
         return this.http.delete(this.authService.URL + "/favorites/"+i);
     }
 
+    createPayment(data){
+        return this.http.post(this.authService.URL + "/payment/create", data);
+    }
 
 
 

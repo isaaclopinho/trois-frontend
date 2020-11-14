@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
 import { DataService } from '../data-storage.service';
 
@@ -7,21 +8,32 @@ import { DataService } from '../data-storage.service';
   templateUrl: './ticket-card.component.html',
   styleUrls: ['./ticket-card.component.css']
 })
-export class TicketCardComponent implements OnInit {
+export class TicketCardComponent implements OnInit , OnDestroy {
   
   @Input() flightOffer : FlightOffer;
   @Input() dictionaries : any;
+  @Input() isFavorited = false;
   id : number = -1;
 
   favoriteLoading = false;
-  @Input() isFavorited = false;
 
+  paymentLoading = false;
+
+  favoriteSubscription : Subscription;
+  orderSubscription : Subscription;
 
   constructor(private dataservice : DataService) { }
 
   ngOnInit(): void {
+    this.dataservice.paymentLoading.subscribe(x => {
+      this.paymentLoading = x;
+    });
   }
 
+  ngOnDestroy(): void {
+    this.favoriteSubscription?.unsubscribe();
+    this.orderSubscription?.unsubscribe();
+  }
 
   getOriginName(i : number){
     if(this.dictionaries){
@@ -124,7 +136,7 @@ export class TicketCardComponent implements OnInit {
       }
     };
   
-    this.dataservice.registerFavorite(JSON.stringify(f)).subscribe((data: any) => {
+    this.favoriteSubscription = this.dataservice.registerFavorite(JSON.stringify(f)).subscribe((data: any) => {
       this.favoriteLoading = false;
       this.isFavorited = true;
       this.id = data.id;
@@ -139,7 +151,7 @@ export class TicketCardComponent implements OnInit {
     if(this.id !== -1){
       this.favoriteLoading = true;
 
-      this.dataservice.deleteFavorite(this.id).subscribe(data => {
+      this.favoriteSubscription = this.dataservice.deleteFavorite(this.id).subscribe(data => {
         this.favoriteLoading = false;
         this.isFavorited = false;
         this.id = -1;
@@ -151,4 +163,26 @@ export class TicketCardComponent implements OnInit {
 
   }
   }
+
+
+  reservar(){
+
+    let f = {
+      "data" : {
+        "flightOffers" : [
+          this.flightOffer
+        ]
+      }
+    };
+
+    this.dataservice.paymentLoading.next(true);
+
+    this.orderSubscription = this.dataservice.createPayment(JSON.stringify(f)).subscribe(data => {
+      console.log(data);
+
+      this.dataservice.paymentLoading.next(false);
+
+    });
+  }
+
 }

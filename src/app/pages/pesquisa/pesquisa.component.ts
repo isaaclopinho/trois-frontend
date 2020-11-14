@@ -39,6 +39,7 @@ export class PesquisaComponent implements OnInit{
   }
 
   ngOnDestroy(): void {
+    this.dataService.paymentLoading.next(false);
     this.searchSubscription?.unsubscribe();
     this.locationSubscription?.unsubscribe();
   }
@@ -88,9 +89,6 @@ export class PesquisaComponent implements OnInit{
   setInputDestination(iataCode : string){
     this.form.controls.destinationCode.setValue(iataCode.toUpperCase());
   }
-
-
-
 
   searchLocations(value : string){
     this.loadingLocations = true;

@@ -34,6 +34,11 @@ export class DataService {
         return this.http.get(this.authService.URL + "/favorites/list");
     }
 
+    deleteFavorite(i : number){
+        return this.http.delete(this.authService.URL + "/favorites/"+i);
+    }
+
+
 
 
 }

@@ -11,6 +11,7 @@ export class TicketCardComponent implements OnInit {
   
   @Input() flightOffer : FlightOffer;
   @Input() dictionaries : any;
+  id : number = -1;
 
   favoriteLoading = false;
   @Input() isFavorited = false;
@@ -123,9 +124,10 @@ export class TicketCardComponent implements OnInit {
       }
     };
   
-    this.dataservice.registerFavorite(JSON.stringify(f)).subscribe(data => {
+    this.dataservice.registerFavorite(JSON.stringify(f)).subscribe((data: any) => {
       this.favoriteLoading = false;
       this.isFavorited = true;
+      this.id = data.id;
       console.log(data);
     }, err => {
       this.favoriteLoading = false;
@@ -133,6 +135,20 @@ export class TicketCardComponent implements OnInit {
     });
 
     console.log(JSON.stringify(f));
+  }else{
+    if(this.id !== -1){
+      this.favoriteLoading = true;
+
+      this.dataservice.deleteFavorite(this.id).subscribe(data => {
+        this.favoriteLoading = false;
+        this.isFavorited = false;
+        this.id = -1;
+        console.log(data);
+      }, err => {
+       console.log(err);
+      })
+    }
+
   }
   }
 }

@@ -68,7 +68,7 @@
             <div class="col-sm-4 d-flex flex-column justify-content-between border-left">
                 <div class="row-sm d-flex justify-content-end">
 
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" style="cursor: pointer" (click)="favorite()">{{isFavorited ? "favorite" : "favorite_border"}}</mat-icon>
+                    <button [disabled]="favoriteLoading" type="button" style="border: none; background-color: rgba(1,1,1,0);" (click)="favorite()" > <mat-icon aria-hidden="false" aria-label="Example home icon" style="cursor: pointer" >{{isFavorited ? "favorite" : "favorite_border"}}</mat-icon></button>
                 </div>
 
 

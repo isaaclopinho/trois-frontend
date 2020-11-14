@@ -16,6 +16,8 @@ export class TicketCardComponent implements OnInit , OnDestroy {
   @Input() isFavorited = false;
   id : number = -1;
 
+  url ;
+
   favoriteLoading = false;
 
   paymentLoading = false;
@@ -26,6 +28,8 @@ export class TicketCardComponent implements OnInit , OnDestroy {
   constructor(private dataservice : DataService, private router : Router) { }
 
   ngOnInit(): void {
+    this.url = window.location.protocol +"//"+window.location.hostname+"/passagem/0";
+    console.log(this.url);
     this.dataservice.paymentLoading.subscribe(x => {
       this.paymentLoading = x;
     });

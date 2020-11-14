@@ -26,7 +26,9 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ReservaComponent } from './pages/perfil/perfil/reserva/reserva.component';
 import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
-
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { PassagemComponent } from './pages/passagem/passagem.component';
 
 
 
@@ -42,7 +44,8 @@ import { TicketCardComponent } from './components/ticket-card/ticket-card.compon
     CadastroComponent,
     PerfilComponent ,
     PagamentoComponent,
-    ReservaComponent  
+    ReservaComponent,
+    PassagemComponent  
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,11 @@ import { TicketCardComponent } from './components/ticket-card/ticket-card.compon
     HttpClientModule,
     FormsModule,
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    }),
+    ShareIconsModule
   ],
   providers: [AuthService, DataService, {
     provide : HTTP_INTERCEPTORS,

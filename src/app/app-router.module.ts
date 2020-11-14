@@ -23,6 +23,7 @@ const routes: Routes = [
     { path: 'passagens',canActivate: [AuthGuard], component: ResultsComponent}, 
     { path: 'pesquisa', canActivate: [AuthGuard], component: PesquisaComponent },
     { path: 'perfil', canActivate: [AuthGuard], component: PerfilComponent },
+    {path: 'pagamento',canActivate: [AuthGuard], component: PagamentoComponent},
     { path: '**', redirectTo: '/auth'},
     
 

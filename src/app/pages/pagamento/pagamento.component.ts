@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute,  Router } from '@angular/router';
+import { strict } from 'assert';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/shared/data-storage.service';
 import { Order } from 'src/app/shared/order.model';
@@ -51,5 +52,6 @@ export class PagamentoComponent implements OnInit, OnDestroy {
     });
 
   }
+
   
 }

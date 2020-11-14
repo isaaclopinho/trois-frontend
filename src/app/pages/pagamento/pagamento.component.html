@@ -1,12 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-auto d-inline flex-column pt-2 pb-2" style="background:#5C6BC0;">
-      <p>Detalhes da compra</p>
-      <p>{{orderData.id}}</p>
-      <p>{{orderData.codTransacao}}</p>
-      <p>{{orderData.dataStatus}}</p>
-      <p>{{orderData.dataTransacao}}</p>
-      <p>{{orderData.status}}</p>
+    <div class="col-auto d-inline flex-column pt-2 pb-2" style="background:#5C6BC0; color: white;">
+      <h3>Detalhes da compra</h3>
+      
+      <div><b>ID:</b> {{orderData.id}}</div>
+      <div><b>Código da reserva:</b> {{orderData.codTransacao}}</div>
+      <div><b>Status da reserva:</b> {{orderData.status}}</div>
     </div>
     <div class="col .bg-light">
 
@@ -24,7 +23,7 @@
         <h1 class="texto">Falta Pouco! Complete seus dados e finalize sua compra.</h1>
         <div class="card ">
           <div class="card-header">
-            Checkout: R$ {{orderData.valorTransacao}}
+            Checkout: <b>R$ {{orderData.valorTransacao}}</b>
           </div>
           <div class="card-body">
             <fieldset [disabled]="isLoading">
@@ -45,7 +44,7 @@
               </div>
               <div class="d-flex">
                 <div class="col-sm-8">
-                  <input type="text" name="cardNumber" class="form-control" placeholder="4111 1111 1111 1111" ngModel maxlength="16" required>
+                  <input type="text" name="cardNumber" class="form-control" placeholder="1111 1111 1111 1111" ngModel maxlength="16" required>
 
 
                 </div>

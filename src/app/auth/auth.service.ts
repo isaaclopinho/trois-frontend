@@ -30,13 +30,9 @@ export class AuthService {
         return this.http.post(this.URL + "/signup", params);
     }
 
-    login(data?){
-        let params= {
-            "usuario" : "sdasdaads@saddsa.com", //usuario eh email
-            "senha" : "sdadsasda"
-        }
+    login(data){
 
-        return this.http.post<AuthInterface>(this.URL + "/login", data ?? params).pipe(tap(resData => {     
+        return this.http.post<AuthInterface>(this.URL + "/login", data).pipe(tap(resData => {     
                 const loadedUser = new User(resData.login, resData.userId, resData.token);
                 this.user.next(loadedUser);
                 const expirationDuration = new Date(loadedUser._tokenExpirationDate).getTime() - new Date().getTime();

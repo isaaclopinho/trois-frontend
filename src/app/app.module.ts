@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ResultsComponent } from './results/results.component';
-import { AirlineTicketService } from './shared/airlineticket.service';
 import { AppRoutingModule } from './app-router.module';
 import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
@@ -62,7 +61,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     MatSnackBarModule,
     MatFormFieldModule
   ],
-  providers: [AirlineTicketService, AuthService, DataService, {
+  providers: [AuthService, DataService, {
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptorService,
     multi: true

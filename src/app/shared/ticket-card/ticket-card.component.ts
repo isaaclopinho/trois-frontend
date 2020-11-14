@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AirlineTicket } from '../airlineticket.model';
 import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
 import { DataService } from '../data-storage.service';
 
@@ -11,16 +10,10 @@ import { DataService } from '../data-storage.service';
 export class TicketCardComponent implements OnInit {
   
   @Input() flightOffer : FlightOffer;
-  @Input() returnDate : string;
-  @Input() departureDate : string;
-  @Input() origin : string;
-  @Input() destination : string;
   @Input() dictionaries : any;
-  @Input() originName : string;
-  @Input() destinationName : string;
 
   favoriteLoading = false;
-  isFavorited = false;
+  @Input() isFavorited = false;
 
 
   constructor(private dataservice : DataService) { }
@@ -30,14 +23,20 @@ export class TicketCardComponent implements OnInit {
 
 
   getOriginName(i : number){
-    let data =  this.dictionaries["locations"][this.getOriginCode(i)];
-    return data.cityCode + "/" + data.countryCode
+    if(this.dictionaries){
+      let data =  this.dictionaries["locations"][this.getOriginCode(i)];
+      return data.cityCode + "/" + data.countryCode;
+    }
+    return "";
   }
 
 
   getDestinationName(i : number){
+    if(this.dictionaries){
     let data = this.dictionaries["locations"][this.getDestinationCode(i)];
     return data.cityCode + "/" + data.countryCode;
+    }
+    return "";
   }
 
   getOriginCode(i : number){
@@ -70,8 +69,9 @@ export class TicketCardComponent implements OnInit {
 
   carrierCode(i : number){
     let str = this.flightOffer.itineraries[i].segments[0].carrierCode;
-    if(this.dictionaries.carriers)
-      return this.dictionaries.carriers[str];
+    if(this.dictionaries)
+      if(this.dictionaries.carriers)
+        return this.dictionaries.carriers[str];
     return str;
   }
 

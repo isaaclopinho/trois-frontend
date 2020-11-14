@@ -9,7 +9,7 @@
                   <input name="originCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropOrigin.open(); resetData()"  type="text" id="dropdownMenuButton" #inputOrigin />
                  
                   <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                     <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputOrigin(location.iataCode+'|'+location.name)">{{location.iataCode}} - {{location.name}}</a>
+                     <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputOrigin(location.iataCode)">{{location.iataCode}} - {{location.name}}</a>
                   </div>    
               </div>
                <br>
@@ -18,7 +18,7 @@
                   <input name="destinationCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropDestination.open(); resetData()"  type="text" id="dropdownMenuButton" #inputDestination />
                  
                   <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                    <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputDestination(location.iataCode+'|'+location.name)">{{location.iataCode}} - {{location.name}}</a>
+                    <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputDestination(location.iataCode)">{{location.iataCode}} - {{location.name}}</a>
                   </div>    
               </div>
                <br>

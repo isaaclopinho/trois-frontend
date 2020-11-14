@@ -1,16 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AirlineTicket } from '../shared/airlineticket.model';
-import { AirlineTicketService } from '../shared/airlineticket.service';
 import { DataService } from '../shared/data-storage.service';
 import {FlightOffers, FlightOffer, Dictionaries} from '../shared/flightoffers.model';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.css'],
-  providers: [AirlineTicketService]
+  styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit, OnDestroy {
 
@@ -39,8 +36,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-
-    this.dataService.getFavorites().subscribe(x => console.log(x), err => console.log(err));
     let results = this.router.snapshot.params;
     
     console.log(results);

@@ -71,12 +71,10 @@ export class PesquisaComponent implements OnInit{
       "children": form.controls.children.value,
       "currencyCode": "BRL",
       "departureDate": form.controls.departureDate.value,
-      "destinationCode": form.controls.destinationCode.value.split('|')[0],
-      "destinationName" : form.controls.destinationCode.value.split('|')[1],
+      "destinationCode": form.controls.destinationCode.value,
       "infants": 0,
       "max": 5,
-      "originCode": form.controls.originCode.value.split('|')[0],
-      "originName": form.controls.originCode.value.split('|')[1],
+      "originCode": form.controls.originCode.value,
       "returnDate": form.controls.returnDate.value
     };
 

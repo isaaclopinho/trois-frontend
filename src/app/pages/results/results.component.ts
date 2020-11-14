@@ -40,7 +40,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     let results = this.router.snapshot.params;
     
-    console.log(results);
+    // console.log(results);
 
     if(Object.keys(results).length){      
       // let offers : FlightOffers = JSON.parse(results);
@@ -63,11 +63,11 @@ export class ResultsComponent implements OnInit, OnDestroy {
             this.isLoading = false;
             this.flightOffers = data.data;
             this.dictionaries = data.dictionaries;
-            console.log(data);
-            console.log(this.flightOffers);
+            // console.log(data);
+            // console.log(this.flightOffers);
           },
           (err) => {
-            console.log(err.error);
+            // console.log(err.error);
             this.error = err.error.titulo ?? 'Erro!';
             this.isLoading = false;
             this.noData = true;

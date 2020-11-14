@@ -29,7 +29,7 @@ export class TicketCardComponent implements OnInit , OnDestroy {
 
   ngOnInit(): void {
     this.url = window.location.protocol +"//"+window.location.hostname+"/passagem/0";
-    console.log(this.url);
+    // console.log(this.url);
     this.dataservice.paymentLoading.subscribe(x => {
       this.paymentLoading = x;
     });
@@ -145,13 +145,13 @@ export class TicketCardComponent implements OnInit , OnDestroy {
       this.favoriteLoading = false;
       this.isFavorited = true;
       this.id = data.id;
-      console.log(data);
+      // console.log(data);
     }, err => {
       this.favoriteLoading = false;
-      console.log(err);
+      // console.log(err);
     });
 
-    console.log(JSON.stringify(f));
+    // console.log(JSON.stringify(f));
   }else{
     if(this.id !== -1){
       this.favoriteLoading = true;
@@ -160,9 +160,10 @@ export class TicketCardComponent implements OnInit , OnDestroy {
         this.favoriteLoading = false;
         this.isFavorited = false;
         this.id = -1;
-        console.log(data);
+        // console.log(data);
       }, err => {
-       console.log(err);
+      //  console.log(err);
+      this.favoriteLoading = false;
       })
     }
 
@@ -183,7 +184,7 @@ export class TicketCardComponent implements OnInit , OnDestroy {
     this.dataservice.paymentLoading.next(true);
 
     this.orderSubscription = this.dataservice.createPayment(JSON.stringify(f)).subscribe(data => {
-      console.log(data);
+      // console.log(data);
 
 
       this.router.navigate(['/pagamento', data]);  

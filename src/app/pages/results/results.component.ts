@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { DataService } from '../shared/data-storage.service';
-import {FlightOffers, FlightOffer, Dictionaries} from '../shared/flightoffers.model';
+import { DataService } from '../../shared/data-storage.service';
+import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
 
 @Component({
   selector: 'app-results',

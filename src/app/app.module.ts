@@ -14,11 +14,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { HeaderComponent } from './header/header.component';
-import { ResultsComponent } from './results/results.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ResultsComponent } from './pages/results/results.component';
 import { AppRoutingModule } from './app-router.module';
-import { TicketCardComponent } from './shared/ticket-card/ticket-card.component';
-import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { AuthService } from './auth/auth.service';
 import { DataService } from './shared/data-storage.service';
 import { AuthInterceptorService } from './auth/auth.interceptor';
@@ -27,6 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ReservaComponent } from './pages/perfil/perfil/reserva/reserva.component';
+import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
 
 
 
@@ -37,17 +36,13 @@ import { ReservaComponent } from './pages/perfil/perfil/reserva/reserva.componen
     LoginComponent,
     HeaderComponent,
     ResultsComponent,
-    TicketCardComponent,
-    DropdownComponent,     
+    TicketCardComponent,     
     PesquisaComponent, 
     FooterComponent,
     CadastroComponent,
-
     PerfilComponent ,
     PagamentoComponent,
-    DropdownComponent,
     ReservaComponent  
-
   ],
   imports: [
     BrowserModule,

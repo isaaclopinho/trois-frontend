@@ -1,11 +1,7 @@
-
-
-
-
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ResultsComponent } from './results/results.component';
+import { ResultsComponent } from './pages/results/results.component';
 import { PesquisaComponent } from './pages/pesquisa/pesquisa.component';
 import { LoginComponent } from './components/login/login.component';
 

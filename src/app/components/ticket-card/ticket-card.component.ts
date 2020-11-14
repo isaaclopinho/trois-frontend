@@ -1,8 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/shared/data-storage.service';
 import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
-import { DataService } from '../data-storage.service';
 
 @Component({
   selector: 'app-ticket-card',

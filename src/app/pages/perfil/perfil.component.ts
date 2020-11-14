@@ -40,11 +40,17 @@ export class PerfilComponent implements OnInit, OnDestroy {
       let d = data.map(x => x.data.flightOffers[0]);
       this.favorites = d;
       this.isLoadingFav= false;
-    }, err => {console.log(err)});
+    }, err => {
+      console.log(err)
+      this.isLoadingFav = false;
+    });
     this.subscriptionCheckouts = this.dataService.getOrders().subscribe(data => {
       this.orders = data;
       this.isLoadingCheckouts = false;
-    }, err => {console.log(err);})
+    }, err => {
+      console.log(err);
+      this.isLoadingCheckouts=false;
+    })
   }
 
 }

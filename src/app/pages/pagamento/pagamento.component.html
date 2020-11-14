@@ -1,30 +1,26 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-auto d-inline flex-column pt-2 pb-2" style="background:#5C6BC0; color: white;">
+
+     <div class="row" style="min-height: 100%">
+    <div class="col-auto d-inline flex-column" style="background:#5C6BC0; color: white;">
+      <div class="p-2">
       <h3>Detalhes da compra</h3>
       
       <div><b>ID:</b> {{orderData.id}}</div>
       <div><b>Código da reserva:</b> {{orderData.codTransacao}}</div>
       <div><b>Status da reserva:</b> {{orderData.status}}</div>
     </div>
-    <div class="col .bg-light">
+    </div>
+    <div class="col d-flex flex-column .bg-light"  style="min-height: 100%;">
+     
+        
 
-      <div class="row">
-        <div class="col-sm-1" style="background: #5C6BC0;">
-        </div>
-
-        <div class="col-sm-1">
-
-        </div>
-
-      </div>
-
-      <div class="row d-flex justify-content-center align-items-center">
-        <h1 class="texto">Falta Pouco! Complete seus dados e finalize sua compra.</h1>
+      <div class="row d-flex justify-content-around ">       
+        <h1>Falta Pouco! Complete seus dados e finalize sua compra.</h1>  
+        
         <div class="card ">
           <div class="card-header">
             Checkout: <b>R$ {{orderData.valorTransacao}}</b>
           </div>
+          
           <div class="card-body">
             <fieldset [disabled]="isLoading">
             <form #f="ngForm" (ngSubmit)="checkout(f)">
@@ -74,5 +70,3 @@
 
 
   </div>
-
-</div>

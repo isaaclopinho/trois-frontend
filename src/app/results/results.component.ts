@@ -39,6 +39,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    this.dataService.getFavorites().subscribe(x => console.log(x), err => console.log(err));
     let results = this.router.snapshot.params;
     
     console.log(results);

@@ -28,12 +28,6 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +54,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     HttpClientModule,
     FormsModule,
     MatSnackBarModule,
-    MatFormFieldModule 
+    MatFormFieldModule
   ],
   providers: [AirlineTicketService, AuthService, DataService, {
     provide : HTTP_INTERCEPTORS,

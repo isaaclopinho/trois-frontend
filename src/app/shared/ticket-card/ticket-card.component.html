@@ -6,15 +6,15 @@
                     <div class="row">
                         <div class="col">
                             <b>IDA</b>
-                            <p>{{getDateFormatted(departureDate)}}</p>
+                            <p>{{getDepartureDate(0)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{origin}}</b>
-                            <p>{{originName}}</p>
+                            <b>{{getOriginCode(0)}}</b>
+                            <p>{{getOriginName(0)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{destination}}</b>
-                            <p>{{destinationName}}</p>
+                            <b>{{getDestinationCode(0)}}</b>
+                            <p>{{getDestinationName(0)}}</p>
                         </div>
                     </div>
                     <div class="row">                        
@@ -36,16 +36,16 @@
                 <div class="container-fluid" >
                     <div class="row" > 
                         <div class="col">
-                            <b>VOLTA</b>
-                            <p>{{getDateFormatted(returnDate)}}</p>
+                            <b>VOLTA</b>                            
+                            <p>{{getDepartureDate(1)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{destination}}</b>
-                            <p>{{destinationName}}</p>
+                            <b>{{getOriginCode(1)}}</b>
+                            <p>{{getOriginName(1)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{origin}}</b>
-                            <p>{{originName}}</p>
+                            <b>{{getDestinationCode(1)}}</b>
+                            <p>{{getDestinationName(1)}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -67,13 +67,14 @@
 
             <div class="col-sm-4 d-flex flex-column justify-content-between border-left">
                 <div class="row-sm d-flex justify-content-end">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" style="cursor: pointer" (click)="favorite()">{{isFavorited ? "favorite" : "favorite_border"}}</mat-icon>
                 </div>
 
 
                 <div class="row-sm d-flex flex-column align-items-center">
 
-                    Preço por adulto
+                    Preço Total
                     <h2>R${{flightOffer.price.total}}</h2>
                     <button type="button" class="btn btn-primary btn-result">Selecionar</button>
 

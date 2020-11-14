@@ -25,6 +25,15 @@ export class DataService {
         return this.http.post<FlightOffers>(this.authService.URL + '/tickets/offers', params);
     }
 
+    registerFavorite(data){
+        return this.http.post(this.authService.URL + "/favorites", data);
+    }
+    
+
+    getFavorites(){
+        return this.http.get(this.authService.URL + "/favorites/list");
+    }
+
 
 
 }

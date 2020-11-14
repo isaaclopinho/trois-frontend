@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AirlineTicket } from '../airlineticket.model';
 import {FlightOffers, FlightOffer, Dictionaries} from '../../shared/flightoffers.model';
+import { DataService } from '../data-storage.service';
 
 @Component({
   selector: 'app-ticket-card',
@@ -18,10 +19,35 @@ export class TicketCardComponent implements OnInit {
   @Input() originName : string;
   @Input() destinationName : string;
 
-  constructor() { }
+  favoriteLoading = false;
+  isFavorited = false;
+
+
+  constructor(private dataservice : DataService) { }
 
   ngOnInit(): void {
   }
+
+
+  getOriginName(i : number){
+    let data =  this.dictionaries["locations"][this.getOriginCode(i)];
+    return data.cityCode + "/" + data.countryCode
+  }
+
+
+  getDestinationName(i : number){
+    let data = this.dictionaries["locations"][this.getDestinationCode(i)];
+    return data.cityCode + "/" + data.countryCode;
+  }
+
+  getOriginCode(i : number){
+      return this.flightOffer.itineraries[i].segments[0].departure.iataCode;
+  }
+
+  getDestinationCode(i : number){
+    let size = this.flightOffer.itineraries[i].segments.length;
+    return this.flightOffer.itineraries[i].segments[size-1].arrival.iataCode;
+}
 
   getDepartureDate(i : number){
     return this.getDateFromSegment(this.flightOffer.itineraries[i].segments[0].departure.at.toString());
@@ -83,5 +109,30 @@ export class TicketCardComponent implements OnInit {
     let hour = split[1].split(":");    
     let hourFormatted = [hour[0], hour[1]].join(':');
     return hourFormatted; 
+  }
+
+  favorite(){
+    if(!this.isFavorited){
+    this.favoriteLoading = true;
+    
+    let f = {
+      "data" : {
+        "flightOffers" : [
+          this.flightOffer
+        ]
+      }
+    };
+  
+    this.dataservice.registerFavorite(JSON.stringify(f)).subscribe(data => {
+      this.favoriteLoading = false;
+      this.isFavorited = true;
+      console.log(data);
+    }, err => {
+      this.favoriteLoading = false;
+      console.log(err);
+    });
+
+    console.log(JSON.stringify(f));
+  }
   }
 }

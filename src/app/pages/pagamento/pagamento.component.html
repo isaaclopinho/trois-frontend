@@ -1,109 +1,57 @@
-<h1>Falta Pouco! Complete seus dados e finalize sua compra</h1>
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <div class="card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-8 d-flex flex-column justify-content-center align-items-center">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col">
-                                        <b>IDA</b>
-                                        <p>{{airlineTicket.getOriginDateFormatted()}}</p>
-                                    </div>
-                                    <div class="col">
-                                        <b>{{airlineTicket.origin}}</b>
-                                        <p>{{airlineTicket.origin}}</p>
-                                    </div>
-                                    <div class="col">
-                                        <b>{{airlineTicket.destination}}</b>
-                                        <p>{{airlineTicket.destination}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <img class="img-fluid img-thumbnail" style="max-height: 30px"
-                                            src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
-                                    </div>
-                                    <div class="col">
-                                        <h4>08:00</h4>
-                                    </div>
-                                    <div class="col">
-                                        <h4>10:00</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="border-top container-fluid" style="margin: 2%" *ngIf="airlineTicket.destinationDate !== null"></div>
-                            <div class="container-fluid" *ngIf="airlineTicket.destinationDate !== null">
-                                <div class="row" > 
-                                    <div class="col">
-                                        <b>VOLTA</b>
-                                        <p>{{airlineTicket.getDestinationDateFormatted()}}</p>
-                                    </div>
-                                    <div class="col">
-                                        <b>{{airlineTicket.destination}}</b>
-                                        <p>{{airlineTicket.destination}}</p>
-                                    </div>
-                                    <div class="col">
-                                        <b>{{airlineTicket.origin}}</b>
-                                        <p>{{airlineTicket.origin}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <img class="img-fluid img-thumbnail" style="max-height: 30px"
-                                            src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
-                                    </div>
-                                    <div class="col">
-                                        <h4>08:00</h4>
-                                    </div>
-                                    <div class="col">
-                                        <h4>10:00</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <div class="col-sm-4 d-flex flex-column justify-content-between border-left">
-                            <div class="row-sm d-flex justify-content-end">
-                                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
-                            </div>
-            
-            
-                        
-            
-                            <div class="row-sm d-flex justify-content-end">
-                                <mat-icon aria-hidden="false" aria-label="Example home icon">facebook</mat-icon>
-                            </div>
-            
-                        </div>
-                    </div>
-                </div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="card">
-            <p>Como você quer pagar?</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Cartão de Crédito
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Cartão de Débito
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Boleto Báncario
-                </label>
-              </div>
-        </div>
-      </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 d-flex flex-column pt-2 pb-2" style="background:#5C6BC0 ;">
+            <p class="pa-result">Detalhes da compra</p>
+            
+            
+        </div>
+        <div class="col-sm-10 .bg-light">
+
+           <div class="row">
+               <div class="col-sm-1" style="background: #5C6BC0;">
+               </div>
+               
+              <div class="col-sm-1">
+                
+              </div>
+            
+           </div>
+
+        <div class="row">
+            <h1 class="texto">Falta Pouco! Complete seus dados e finalize sua compra.</h1>
+            <div class="card pg-card shadow p-3 mb-5 bg-white rounded">
+                <p class="texto">Como você quer pagar?</p>
+                 <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pagamentos" id="ct-credito" value="opcao1" checked>
+                    <label class="form-check-label" for="ct-credito">
+                      Cartão de Crédito
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pagamentos" id="ct-debito" value="opcao2" checked>
+                    <label class="form-check-label" for="ct-debito">
+                      Cartão de Débito
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pagamentos" id="boleto" value="opcao3" checked>
+                    <label class="form-check-label" for="boleto1">
+                      Boleto Báncario
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-primary btn-finalizar">Finalizar</button>
+                  </div>
+                  
+
+            </div>
+        </div>
+        </div>
+
+        
+    </div>
+
+</div>

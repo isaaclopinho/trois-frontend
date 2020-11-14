@@ -30,14 +30,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> e9d4fcb209e2d59abce1f38b8807a124f04b78f2
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,13 +42,11 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     PesquisaComponent, 
     FooterComponent,
     CadastroComponent,
-<<<<<<< HEAD
+
     PerfilComponent ,
-    PagamentoComponent 
-=======
-    PerfilComponent,
+    PagamentoComponent,
     DropdownComponent  
->>>>>>> e9d4fcb209e2d59abce1f38b8807a124f04b78f2
+
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { stringify } from 'querystring';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { DataService } from 'src/app/shared/data-storage.service';
 
@@ -24,11 +25,22 @@ export class PesquisaComponent implements OnInit{
   loadingLocations = false;
   locations = [];
 
-  constructor(private dataService : DataService, private _snackBar: MatSnackBar) {    
+  searchSubscription : Subscription;
+  locationSubscription : Subscription;
+
+
+  constructor(private dataService : DataService, private router : Router) {    
   }
 
 
   ngOnInit(): void {
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubscription?.unsubscribe();
+    this.locationSubscription?.unsubscribe();
   }
 
   ngAfterViewInit(): void {
@@ -45,10 +57,11 @@ export class PesquisaComponent implements OnInit{
       .subscribe(value => { this.searchLocations(value)});
   }
   
+  
   onSearch(form : NgForm){
 
-    console.log(form);
 
+  console.log(form);
     if(!form.valid){
       this.error = "Todos os campos devem ser preenchidos!"
       return;
@@ -58,35 +71,33 @@ export class PesquisaComponent implements OnInit{
       "children": form.controls.children.value,
       "currencyCode": "BRL",
       "departureDate": form.controls.departureDate.value,
-      "destinationCode": form.controls.destinationCode.value.toUpperCase(),
+      "destinationCode": form.controls.destinationCode.value.split('|')[0],
+      "destinationName" : form.controls.destinationCode.value.split('|')[1],
       "infants": 0,
       "max": 5,
-      "originCode": form.controls.originCode.value.toUpperCase(),
+      "originCode": form.controls.originCode.value.split('|')[0],
+      "originName": form.controls.originCode.value.split('|')[1],
       "returnDate": form.controls.returnDate.value
     };
 
-    console.log(params);
-
-    this.isLoading = true;    
-
-    this.dataService.searchTickets(params).subscribe(resData => {
-        this.isLoading = false;
-        console.log(resData);
-    },
-    err => {
-        console.log(err.error);
-        this.error = err.error.titulo ?? "Erro!";
-        this.isLoading = false;
-    });
-
-    form.reset();
+    this.router.navigate(['/passagens', params]);    
   }
+
+  setInputOrigin(iataCode : string){
+    this.form.controls.originCode.setValue(iataCode.toUpperCase());
+  }
+
+  setInputDestination(iataCode : string){
+    this.form.controls.destinationCode.setValue(iataCode.toUpperCase());
+  }
+
+
 
 
   searchLocations(value : string){
     this.loadingLocations = true;
 
-    this.dataService.getLocations(value).subscribe(locations => {
+    this.locationSubscription = this.dataService.getLocations(value).subscribe(locations => {
       console.log(locations);
       this.locations = locations;
       this.loadingLocations = false;

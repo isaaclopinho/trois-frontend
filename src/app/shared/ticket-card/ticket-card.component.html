@@ -6,56 +6,60 @@
                     <div class="row">
                         <div class="col">
                             <b>IDA</b>
-                            <p>{{airlineTicket.getOriginDateFormatted()}}</p>
+                            <p>{{getDateFormatted(departureDate)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{airlineTicket.origin}}</b>
-                            <p>{{airlineTicket.origin}}</p>
+                            <b>{{origin}}</b>
+                            <p>{{originName}}</p>
                         </div>
                         <div class="col">
-                            <b>{{airlineTicket.destination}}</b>
-                            <p>{{airlineTicket.destination}}</p>
+                            <b>{{destination}}</b>
+                            <p>{{destinationName}}</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row">                        
                         <div class="col">
-                            <img class="img-fluid img-thumbnail" style="max-height: 30px"
-                                src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
+                            <b>{{paradas(0)}}</b>
+                            <p>{{carrierCode(0)}}</p>
                         </div>
                         <div class="col">
-                            <h4>08:00</h4>
+                            <b>{{getDepartureHour(0)}}</b>
+                            <p>{{getDepartureDate(0)}}</p>
                         </div>
                         <div class="col">
-                            <h4>10:00</h4>
+                            <b>{{getArrivalHour(0)}}</b>
+                            <p>{{getArrivalDate(0)}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="border-top container-fluid" style="margin: 2%" *ngIf="airlineTicket.destinationDate !== null"></div>
-                <div class="container-fluid" *ngIf="airlineTicket.destinationDate !== null">
+                <div class="border-top container-fluid" style="margin: 2%" ></div>
+                <div class="container-fluid" >
                     <div class="row" > 
                         <div class="col">
                             <b>VOLTA</b>
-                            <p>{{airlineTicket.getDestinationDateFormatted()}}</p>
+                            <p>{{getDateFormatted(returnDate)}}</p>
                         </div>
                         <div class="col">
-                            <b>{{airlineTicket.destination}}</b>
-                            <p>{{airlineTicket.destination}}</p>
+                            <b>{{destination}}</b>
+                            <p>{{destinationName}}</p>
                         </div>
                         <div class="col">
-                            <b>{{airlineTicket.origin}}</b>
-                            <p>{{airlineTicket.origin}}</p>
+                            <b>{{origin}}</b>
+                            <p>{{originName}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img class="img-fluid img-thumbnail" style="max-height: 30px"
-                                src="https://logodownload.org/wp-content/uploads/2016/11/latam-logo_.png" />
+                            <b>{{paradas(1)}}</b>
+                            <p>{{carrierCode(1)}}</p>
                         </div>
                         <div class="col">
-                            <h4>08:00</h4>
+                            <b>{{getDepartureHour(1)}}</b>
+                            <p>{{getDepartureDate(1)}}</p>
                         </div>
                         <div class="col">
-                            <h4>10:00</h4>
+                            <b>{{getArrivalHour(1)}}</b>
+                            <p>{{getArrivalDate(1)}}</p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +74,7 @@
                 <div class="row-sm d-flex flex-column align-items-center">
 
                     Preço por adulto
-                    <h2>U$ {{airlineTicket.totalPrice().toFixed(2)}} </h2>
+                    <h2>R${{flightOffer.price.total}}</h2>
                     <button type="button" class="btn btn-primary btn-result">Selecionar</button>
 
                 </div>

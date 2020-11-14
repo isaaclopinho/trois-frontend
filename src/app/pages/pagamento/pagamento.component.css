@@ -1,0 +1,43 @@
+h1{
+    font-size: 30px;
+    color: #5172ED;
+    font-weight: bold;
+    display: auto;
+    margin: auto;
+    margin-top: 1.6em;
+    margin-bottom:1.6em;
+}
+p{
+    color: #5172ED;
+    font-weight: bold;
+    font-size: 1.3em;
+
+}
+.pa-result{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    color:white;
+    
+}
+
+.pg-card{
+    padding: 30px;
+    width: 700px;
+    margin-left: 1.25em;
+    box-shadow: 0,6em;
+    display: auto;
+    margin: auto;
+}
+label{
+    font-weight: bold;
+}
+.btn-finalizar{
+    width: 9.3em;
+    float: right;
+    background-color: #271F50;
+    border-radius: 2.5em;
+    font-weight: bold;
+
+}

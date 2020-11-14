@@ -19,7 +19,7 @@ export class AuthService {
 
     user = new BehaviorSubject<User>(null);
 
-    URL = "http://javatravelers-backend.azurewebsites.net";
+    URL = "https://javatravelers-backend.azurewebsites.net";
     tokenExpirationTimer: any;
 
     constructor(private http: HttpClient, private router : Router){

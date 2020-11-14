@@ -5,6 +5,7 @@ import { exhaustMap, map, take, tap } from "rxjs/operators";
 import { Subject } from 'rxjs';
 import { Airports } from './airports.model';
 import { FlightOffers } from './flightoffers.model';
+import { Order } from './order.model';
 @Injectable({
     providedIn: 'root'
 })
@@ -39,7 +40,7 @@ export class DataService {
     }
 
     createPayment(data){
-        return this.http.post(this.authService.URL + "/payment/create", data);
+        return this.http.post<Order>(this.authService.URL + "/payment/create", data);
     }
 
     checkout(code : string){
@@ -50,5 +51,10 @@ export class DataService {
 
         return this.http.post(this.authService.URL + "/payment/order/response", params);
     }
+
+    getOrders(){
+        return this.http.get<Order[]>(this.authService.URL + "/payment/list");
+    }
+
 
 }

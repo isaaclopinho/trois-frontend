@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute,  Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/shared/data-storage.service';
+import { Order } from 'src/app/shared/order.model';
 
 @Component({
   selector: 'app-pagamento',
@@ -10,16 +11,7 @@ import { DataService } from 'src/app/shared/data-storage.service';
   styleUrls: ['./pagamento.component.css'],
 })
 export class PagamentoComponent implements OnInit, OnDestroy {
-  orderData: {
-    codTransacao: string;
-    dataStatus: string;
-    dataTransacao: string;
-    id: string;
-    status: string;
-    url: string;
-    userId: string;
-    valorTransacao: string;
-  };
+  orderData: Order;
   error: string;
   isLoading : boolean = false;
 
@@ -32,20 +24,10 @@ export class PagamentoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-   this.orderData = this.router.snapshot.params as {
-    codTransacao: string;
-    dataStatus: string;
-    dataTransacao: string;
-    id: string;
-    status: string;
-    url: string;
-    userId: string;
-    valorTransacao: string;
-  };
+   this.orderData = this.router.snapshot.params as Order;
 
     console.log(this.orderData);
     if (Object.keys(this.orderData).length) {
-      console.log("deu bom!!");
     }
   }
 

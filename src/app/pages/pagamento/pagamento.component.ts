@@ -27,7 +27,7 @@ export class PagamentoComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
    this.orderData = this.router.snapshot.params as Order;
 
-    console.log(this.orderData);
+    // console.log(this.orderData);
     if (!Object.keys(this.orderData).length) {
       this.r.navigate(['pesquisa']);
     }
@@ -42,11 +42,11 @@ export class PagamentoComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     
     this.checkoutSubscription = this.dataService.checkout(this.orderData.codTransacao).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.r.navigate(['perfil']);
       this.isLoading = false;
     }, err => {
-      console.log(err);
+      // console.log(err);
       this.r.navigate(['perfil']);
       this.isLoading = false;
     });

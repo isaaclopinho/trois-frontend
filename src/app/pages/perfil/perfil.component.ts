@@ -44,7 +44,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
       this.favorites = d;
       this.isLoadingFav= false;
     }, err => {
-      console.log(err)
+      // console.log(err)
       this.isLoadingFav = false;
       this.noFavs = true;
     });
@@ -52,7 +52,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
       this.orders = data;
       this.isLoadingCheckouts = false;
     }, err => {
-      console.log(err);
+      // console.log(err);
       this.isLoadingCheckouts=false;
       this.noOrders = true;
     })

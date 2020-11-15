@@ -18,7 +18,7 @@ export class CadastroComponent {
   
   onSignup(form : NgForm){
 
-    console.log(form);
+    // console.log(form);
     if(!form.valid){
       this.error = "Todos os campos devem ser preenchidos  ou há campos inválidos!"
       return;
@@ -32,7 +32,7 @@ export class CadastroComponent {
       senha : form.controls.senha.value,
     };
 
-    console.log(params);
+    // console.log(params);
 
     this.isLoading = true;
     
@@ -42,7 +42,7 @@ export class CadastroComponent {
         this.isLoading = false;
     },
     err => {
-        console.log(err.error);
+        // console.log(err.error);
         this.error = err.error.titulo ?? "Erro!";
         this.isLoading = false;
     });

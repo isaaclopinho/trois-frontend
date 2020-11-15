@@ -32,9 +32,11 @@
         <div class="alert alert-danger" *ngIf="error && !isLoading">
           {{error}}
       </div>
-        <button type="submit" class="btn btn-primary btn-enviar">
+       <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="background-color: #271F50" >
           {{!isLoading ? "Cadastrar" : ""}} <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"> </div>
         </button>
+      </div>
     
       </form>
     </fieldset>

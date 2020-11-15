@@ -6,7 +6,7 @@ export default class User {
     constructor(public login: string, public userId: string, private _token : string){
         let decoded_token : any = jwt_decode(_token);
         this._tokenExpirationDate = new Date(decoded_token.exp * 1000);
-        console.log(this._tokenExpirationDate.toString());
+        // console.log(this._tokenExpirationDate.toString());
     }
 
     get token(){

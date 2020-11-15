@@ -62,7 +62,7 @@ export class PesquisaComponent implements OnInit{
   onSearch(form : NgForm){
 
 
-  console.log(form);
+  // console.log(form);
     if(!form.valid){
       this.error = "Todos os campos devem ser preenchidos ou há campos inválidos!"
       return;
@@ -94,7 +94,7 @@ export class PesquisaComponent implements OnInit{
     this.loadingLocations = true;
 
     this.locationSubscription = this.dataService.getLocations(value).subscribe(locations => {
-      console.log(locations);
+      // console.log(locations);
       this.locations = locations;
       this.loadingLocations = false;
     }, err => {

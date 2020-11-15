@@ -7,7 +7,7 @@
             <div class="container">
                <label for="origem"><b style="color:white;">Origem</b></label>
                <div id="origem" class="dropdown" ngbDropdown #dropOrigin="ngbDropdown">
-                  <input name="originCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropOrigin.open(); resetData()"  type="text" id="dropdownMenuButton" #inputOrigin />
+                  <input name="originCode" placeholder="Digite o local de origem" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropOrigin.open(); resetData()"  type="text" id="dropdownMenuButton" #inputOrigin />
                  
                   <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                      <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputOrigin(location.iataCode)">{{location.iataCode}} - {{location.name}}</a>
@@ -16,7 +16,7 @@
                <br>
                <label for="destino"><b style="color: white;">Destino</b></label>
                <div id="destino" class="dropdown" ngbDropdown #dropDestination="ngbDropdown">
-                  <input name="destinationCode" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropDestination.open(); resetData()"  type="text" id="dropdownMenuButton" #inputDestination />
+                  <input name="destinationCode" placeholder="Digite o seu destino" ngModel required [disabled]="loadingLocations" ngbDropdownAnchor class="form-control" (focus)="dropDestination.open(); resetData()"  type="text" id="dropdownMenuButton" #inputDestination />
                  
                   <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                     <a ngbDropdownItem class="dropdown-item" *ngFor="let location of locations" (click)="setInputDestination(location.iataCode)">{{location.iataCode}} - {{location.name}}</a>
@@ -39,11 +39,11 @@
                <div class="row">
                   <div class="col">
                      <label for="adultos"><b style="color: white;">Adultos</b></label>
-                     <input type="number" ngModel="1" min="0" max="9" class="form-control" id="adultos" name="adults" required/>
+                     <input placeholder="Número de adultos" type="number" ngModel="1" min="0" max="9" class="form-control" id="adultos" name="adults" required/>
                   </div>
                   <div class="col">
                      <label for="criancas"><b style="color: white;">Crianças</b></label>
-                     <input type="number" ngModel="0" min="0" max="9" class="form-control" id="criancas" name="children"  required />
+                     <input placeholder="Número de crianças" type="number" ngModel="0" min="0" max="9" class="form-control" id="criancas" name="children"  required />
                   </div>
                </div>
                <br>

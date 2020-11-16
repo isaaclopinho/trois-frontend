@@ -59,7 +59,9 @@ Hospedagem de código: Github
 
 LINKS: 
 ● Figma: https://www.figma.com/file/lbRLcbA90DMNrTNCJ2ymK2/Projeto-Final----Gamma-Acaddemy?node-id=1%3A3
+
 ● Aplicação: https://master.dknzhnrlwwfct.amplifyapp.com/
+
 ● Trello:https://trello.com/b/yWtnQcpZ/gama-acaddemy
 
 
